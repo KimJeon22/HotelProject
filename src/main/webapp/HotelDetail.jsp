@@ -93,7 +93,7 @@ function carouselInit( height, t ){
 	$("#carousel_section").height(height); // 캐너셀 높이 설정
 	$carouselLi = $("#carousel_section > ul >li");
 	carouselCount = $carouselLi.length; // 캐러셀 사진 갯수
-	currentIndex = 0; // 현재 보여지는 슬라이드 인덱스 값
+	currentIndex = 1; // 현재 보여지는 슬라이드 인덱스 값
 	carousel_setImgPosition();
 	carousel();
 }
