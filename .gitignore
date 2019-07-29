@@ -60,9 +60,9 @@ ehthumbs.db
 ehthumbs_vista.db
 
 #dohyung
-.git/target
-.properties
-.MF
+/target/
+*.properties
+*.MF
 
 # Folder config file
 Desktop.ini
