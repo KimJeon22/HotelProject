@@ -19,8 +19,8 @@
 	.card-title{ font-size: large; }
 	.card-text{ font-size: small; }
  	a{ color: white; }
- 	a:link { color: white; text-decoration: none;}
- 	a:visited { color: white; text-decoration: none;}
+ 	a:link { color: blue; text-decoration: none;}
+ 	a:visited { color: blue; text-decoration: none;}
  	a:hover { color: blue; text-decoration: underline;}
 </style>
 </head>
@@ -135,12 +135,13 @@
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
-        					<p class="card-title">호텔 이름</p>
+        					<p class="card-title"><a href="HotelDetail.jsp">호텔 이름</a></p>
         					<p class="card-text">★★★ </p>
         					<p class="card-text"> 무슨동 무슨동</p>
+        					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
-        						<label class="card-title">10.000원</label> <br>
-								<input type="button" class="btn btn-success" value="예약하기">
+        						<label class="card-title">최저가 10.000원</label> <br>
+								<a href="booking.jsp"><input type="button" class="btn btn-success" value="예약하기"></a>
       						</div>
     					</div>
   					</div>
