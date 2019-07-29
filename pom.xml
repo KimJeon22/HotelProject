@@ -138,6 +138,18 @@
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+	
+		<!--  jason -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.4</version>
+		</dependency>
 
 		<!-- 오라클 11g 12g com.oracle ojdbc6 12.1.0.2 버젼 2017-07-20목요일 시작 -->
 		<dependency>
@@ -158,20 +170,20 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- mybatis기술 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.2.8</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		
+
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -179,11 +191,11 @@
 			<version>1.18.2</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- 여기까지 우리꺼 0723 -->
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>

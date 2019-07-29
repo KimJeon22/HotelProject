@@ -22,6 +22,30 @@
  	a:link { color: blue; text-decoration: none;}
  	a:visited { color: blue; text-decoration: none;}
  	a:hover { color: blue; text-decoration: underline;}
+ 	
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  display: none;
+  margin-left:600px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+}
+
 </style>
 </head>
 
@@ -129,7 +153,8 @@
 			<!--  오른쪽 화면  -->
 			<div class="col-8">
 			
-			<c:forEach var="dto" items="${HL }">
+			<c:forEach var="dto" items="${HL }" begin="${start }" end="${end }">
+			<input type="hidden" id="num" value="${pageNum }">
 			<div class="card mb-3 margin-top-lg" >
   				<div class="row no-gutters">
    					<div class="col-md-4">
@@ -139,7 +164,7 @@
       					<div class="card-body">
         					<p class="card-title"><a href="HotelDetail.jsp">${dto.h_name }</a></p>
         					<p class="card-text">★★★ </p>
-        					<p class="card-text">주소<br>${dto.adress }</p>
+        					<p class="card-text">주소<br>${dto.h_adress }</p>
         					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
         						<label class="card-title">최저가 10.000원</label> <br>
@@ -151,15 +176,8 @@
 			</div>
 			</c:forEach>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
 		</div>
+		<div class="loader"></div>
 	</div>
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -177,7 +195,43 @@
 	<!-- 상세검색 js -->
 	<script src="${pageContext.request.contextPath}/resources/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
+	<script type="text/javascript">
+	var $loader = $('.loader'); // 스피너 추가
+	
+    $(window).scroll(function() {
+    	var maxHeight = $(document).height();
+    	var currentScroll = $(window).scrollTop() + $(window).height();
+    	var pageNum = parseInt($('#num').val())+1 ;
+	    
+     if (maxHeight <= currentScroll) {
+    		
+    		$.ajax({
+    			type: 'GET', // get 방식으로 요청
+    			url: "list.do", // 데이터를 불러오는 json-server 주소입니다 .
+    			data : { "Gnum" : pageNum },
+    			dataType: 'json', // json 타입
+    			beforeSend : function(){ // 요청을 보내기전
+    				$loader.show(); // 요청을 보내기전에 스피너를 보여줍니다.
+    			}
+    		})
+    		
+    		.done(function (data) { // 성공시 호출될 함수
+				setTimeout(function () { // 1초의 딜레이를 주었습니다.
+			    $spiner.hide(); // 요청이 마무리된후 스피너를 다시 가려줍니다.
+			}, 2000);
+		})
+		
+		.fail(function (err) { // 실패했을때 불러질 함수
+			console.error('데이터 불러오기 실패');
+		});
+    		
+    	}
+    });
+    
+	</script>
+
 
 </body>
 </html>
