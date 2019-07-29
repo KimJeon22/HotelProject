@@ -107,7 +107,7 @@ function carousel_setImgPosition(){
 		if( i == currentIndex)
 		{
 			$carouselLi.eq(i).css("left", 0);
-		}
+		} 
 		else
 		{
 			$carouselLi.eq(i).css("left", imgW);
