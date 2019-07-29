@@ -170,11 +170,11 @@ function carousel(){
  
 <div id="carousel_section">
 <ul>
-<li><img src="C:\Users\user\git\HotelProject\src\main\webapp\resources\images\a1.jpg" width="150" height="200"></li>
-<li><img src="C:\Users\user\git\HotelProject\src\main\webapp\resources\images\a2.jpg" width="150" height="200"></li>
-<li><img src="C:\Users\user\git\HotelProject\src\main\webapp\resources\images\a3.jpg" width="150" height="200"></li>
-<li><img src="C:\Users\user\git\HotelProject\src\main\webapp\resources\images\a4.jpg" width="150" height="200"></li>
-<li><img src="C:\Users\user\git\HotelProject\src\main\webapp\resources\images\a5.jpg" width="150" height="200"></li>
+<li><img src="${pageContext.request.contextPath}/resources/images/a1.jpg" width="150" height="200"></li>
+<li><img src="${pageContext.request.contextPath}/resources/images/a2.jpg" width="150" height="200"></li>
+<li><img src="${pageContext.request.contextPath}/resources/images/a3.jpg" width="150" height="200"></li>
+<li><img src="${pageContext.request.contextPath}/resources/images/a4.jpg" width="150" height="200"></li>
+<li><img src="${pageContext.request.contextPath}/resources/images/a5.jpg" width="150" height="200"></li>
 </ul>
 </div>
  
