@@ -7,13 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[index.jsp]</title>
+<title>[HotelDetail.jsp]</title>
 
 <style type="text/css">
 #htl_name {border-style:solid; background-color:lightblue;}
 .htl_loca {font-size:13pt; color:green;}
 #hc_htl_desc{margin: 40px 40x 40px 40px;}
-#carousel_section{
+#carousel_section
+{
 width:50%;
 background-color:gray;
 }
