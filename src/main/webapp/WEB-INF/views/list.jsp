@@ -128,16 +128,18 @@
 
 			<!--  오른쪽 화면  -->
 			<div class="col-8">
+			
+			<c:forEach var="dto" items="${HL }">
 			<div class="card mb-3 margin-top-lg" >
   				<div class="row no-gutters">
    					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/images/a.jpg" class="card-img" height="200px" width="200">
+      					<img src="${pageContext.request.contextPath}/resources/hotel_image/${dto.h_image}" class="card-img" height="200px" width="200">
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
-        					<p class="card-title"><a href="HotelDetail.jsp">호텔 이름</a></p>
+        					<p class="card-title"><a href="HotelDetail.jsp">${dto.h_name }</a></p>
         					<p class="card-text">★★★ </p>
-        					<p class="card-text"> 무슨동 무슨동</p>
+        					<p class="card-text">주소<br>${dto.adress }</p>
         					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
         						<label class="card-title">최저가 10.000원</label> <br>
@@ -147,84 +149,9 @@
   					</div>
 				</div>
 			</div>
-			
-				<div class="card mb-3 margin-top-lg" >
-  				<div class="row no-gutters">
-   					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/images/a.jpg" class="card-img" height="200px" width="200">
-    				</div>
-    				<div class="col-md-8">
-      					<div class="card-body">
-        					<p class="card-title">호텔 이름</p>
-        					<p class="card-text">★★★ </p>
-        					<p class="card-text"> 무슨동 무슨동</p>
-        					<div class="text-right"> 
-        						<label class="card-title">10.000원</label> <br>
-								<input type="button" class="btn btn-success" value="예약하기">
-      						</div>
-    					</div>
-  					</div>
-				</div>
-			</div>
-			
-				<div class="card mb-3 margin-top-lg" >
-  				<div class="row no-gutters">
-   					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/images/a.jpg" class="card-img" height="200px" width="200">
-    				</div>
-    				<div class="col-md-8">
-      					<div class="card-body">
-        					<p class="card-title">호텔 이름</p>
-        					<p class="card-text">★★★ </p>
-        					<p class="card-text"> 무슨동 무슨동</p>
-        					<div class="text-right"> 
-        						<label class="card-title">10.000원</label> <br>
-								<input type="button" class="btn btn-success" value="예약하기">
-      						</div>
-    					</div>
-  					</div>
-				</div>
-			</div>
-			
-				<div class="card mb-3 margin-top-lg" >
-  				<div class="row no-gutters">
-   					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/images/a.jpg" class="card-img" height="200px" width="200">
-    				</div>
-    				<div class="col-md-8">
-      					<div class="card-body">
-        					<p class="card-title">호텔 이름</p>
-        					<p class="card-text">★★★ </p>
-        					<p class="card-text"> 무슨동 무슨동</p>
-        					<div class="text-right"> 
-        						<label class="card-title">10.000원</label> <br>
-								<input type="button" class="btn btn-success" value="예약하기">
-      						</div>
-    					</div>
-  					</div>
-				</div>
-			</div>
-			
-				<div class="card mb-3 margin-top-lg" >
-  				<div class="row no-gutters">
-   					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/images/a.jpg" class="card-img" height="200px" width="200">
-    				</div>
-    				<div class="col-md-8">
-      					<div class="card-body">
-        					<p class="card-title">호텔 이름</p>
-        					<p class="card-text">★★★ </p>
-        					<i class="headset_mic"></i>
-        					<p class="card-text"> 무슨동 무슨동</p>
-        					<div class="text-right"> 
-        						<label class="card-title">10.000원</label> <br>
-								<input type="button" class="btn btn-success" value="예약하기">
-      						</div>
-    					</div>
-  					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
+		
 		
 		
 		

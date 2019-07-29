@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="selectAll" resultType="net.hb.crud.BoardDTO">
-		select rownum rn, h.* from hobby h
+		select * from hotel
 	</select>
 	
 	<select id="detail" resultType="net.hb.crud.BoardDTO">
