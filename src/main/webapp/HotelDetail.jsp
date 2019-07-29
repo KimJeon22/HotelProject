@@ -99,7 +99,7 @@ function carouselInit( height, t ){
 }
 
 function carousel_setImgPosition(){
-
+ 
 	imgW = $carouselLi.width(); // 사진 한장의 너비	
 	// 이미지 위치 조정
 	for(var i = 0; i < carouselCount; i++)
