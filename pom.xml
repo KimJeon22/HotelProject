@@ -139,18 +139,6 @@
 			<version>2.2.2</version>
 		</dependency>
 	
-		<!--  jason -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.6.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.6.4</version>
-		</dependency>
-
 		<!-- 오라클 11g 12g com.oracle ojdbc6 12.1.0.2 버젼 2017-07-20목요일 시작 -->
 		<dependency>
 			<groupId>com.oracle</groupId>
