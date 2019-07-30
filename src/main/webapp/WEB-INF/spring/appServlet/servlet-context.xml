@@ -23,7 +23,8 @@
 	</beans:bean> -->
 	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></beans:bean>
-	
+
+
 	<context:component-scan base-package="net.hb.*" />
 	
 </beans:beans>

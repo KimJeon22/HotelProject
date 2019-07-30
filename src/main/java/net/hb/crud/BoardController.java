@@ -1,6 +1,9 @@
 package net.hb.crud;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,36 +31,60 @@ public class BoardController {
 	@Autowired
 	@Inject
 	BoardDAO dao;
+	int pageCount = 5;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@RequestMapping("/list.do")
-	@ResponseBody
-	public ModelAndView board_list(BoardDTO dto, HttpServletRequest request) {
+	public ModelAndView board_list(BoardDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		int total = dao.dbCount();
-		int pageCount = 5;
-		String data = request.getParameter("Gnum");
-		if(data == "" || data == null) data = "1";
-		int pageNum = Integer.parseInt(data);
-		int start = 0, end = 0;
+		int start = 1, end = 5;
 		
-		start = (pageNum - 1) * 5+1;
-		end = (pageNum) * 5;
-		if( total < pageCount) pageCount = total;
+		if( total < 5) end = total;
 		System.out.println(start +"\t시작 -- 끝   " + end);
-		
+		System.out.println(total +" asd" +end);
 		List<BoardDTO> hotelList = dao.dbSelect(start, end);
+		
+		if(dto.getCheckIn_date() == null) {}
+		else {
+			try {
+		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		        Date beginDate = formatter.parse(dto.getCheckIn_date());
+		        Date endDate = formatter.parse(dto.getCheckOut_date());
+		         
+		        // 시간차이를 시간,분,초를 곱한 값으로 나누면 하루 단위가 나옴
+		        long diff = endDate.getTime() - beginDate.getTime();
+		        long diffDays = diff / (24 * 60 * 60 * 1000);
+		 
+		        System.out.println("날짜차이=" + diffDays);
+		         
+		    	} catch (ParseException e) {
+		        e.printStackTrace();
+		    	}
+			}
 		
 		mav.addObject("start", start);
 		mav.addObject("end",end);
-		mav.addObject("pageNum",pageNum);
-		mav.addObject("pageCount", pageCount);
 		mav.addObject("total",total);
 		mav.addObject("HL", hotelList);
 		mav.setViewName("WEB-INF/views/list.jsp");
 		return mav;
 	}
+	
+	@RequestMapping("/list.ajax")
+	public @ResponseBody List<BoardDTO> AjaxView(@RequestParam("Gnum") int data)  {
+		int start = 0, end = 0;
+		
+		start = (data - 1) * 5+1;
+		end = (data) * 5;
+		int total = dao.dbCount();
+		if( total < pageCount) pageCount = total;
+		List<BoardDTO> dto = dao.dbSelect(start, end);
+		
+	    return dto;
+	}
+	
 	
 	@RequestMapping("/Detail.do")
 	public ModelAndView board_detail(BoardDTO dto, @RequestParam("Title") String data) {

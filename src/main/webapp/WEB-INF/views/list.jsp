@@ -69,10 +69,10 @@
 	
 	<!--  스티키 nav -->
 		<nav class="navbar sticky-top navbar-light bg-light container" id="navbar">
-  			<form class="form-inline">
+  			<form class="form-inline" method="get" action="list.do">
     			<input class="form-control mr-sm-2" type="search" placeholder="지역 검색">
-    			<input class="form-control mr-sm-2" type="date">
-    			<input class="form-control mr-sm-2" type="date">
+    			<input class="form-control mr-sm-2" type="date" name="checkIn_date">
+    			<input class="form-control mr-sm-2" type="date" name="checkOut_date">
     			<input class="form-control mr-sm-2" type="search" placeholder="인원 수">
     			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   			</form>	
@@ -152,9 +152,7 @@
 
 			<!--  오른쪽 화면  -->
 			<div class="col-8">
-			
 			<c:forEach var="dto" items="${HL }" begin="${start }" end="${end }">
-			<input type="hidden" id="num" value="${pageNum }">
 			<div class="card mb-3 margin-top-lg" >
   				<div class="row no-gutters">
    					<div class="col-md-4">
@@ -163,7 +161,9 @@
     				<div class="col-md-8">
       					<div class="card-body">
         					<p class="card-title"><a href="HotelDetail.jsp">${dto.h_name }</a></p>
-        					<p class="card-text">★★★ </p>
+        					<c:forEach begin="1" end="${dto.h_rate }" step="1">
+								<font color="orange"> <label id=text>★</label></font>
+							</c:forEach>
         					<p class="card-text">주소<br>${dto.h_adress }</p>
         					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
@@ -175,6 +175,7 @@
 				</div>
 			</div>
 			</c:forEach>
+			
 		</div>
 		</div>
 		<div class="loader"></div>
@@ -199,37 +200,45 @@
 	
 	<script type="text/javascript">
 	var $loader = $('.loader'); // 스피너 추가
-	
+	var page = 1;
+				
     $(window).scroll(function() {
     	var maxHeight = $(document).height();
     	var currentScroll = $(window).scrollTop() + $(window).height();
-    	var pageNum = parseInt($('#num').val())+1 ;
 	    
-     if (maxHeight <= currentScroll) {
+     if (maxHeight <= currentScroll+100) {
+    		page++;
     		
     		$.ajax({
     			type: 'GET', // get 방식으로 요청
-    			url: "list.do", // 데이터를 불러오는 json-server 주소입니다 .
-    			data : { "Gnum" : pageNum },
+    			url: "list.ajax", // 데이터를 불러오는 json-server 주소입니다 .
+    			data : { "Gnum" : page },
     			dataType: 'json', // json 타입
-    			beforeSend : function(){ // 요청을 보내기전
-    				$loader.show(); // 요청을 보내기전에 스피너를 보여줍니다.
-    			}
-    		})
     		
-    		.done(function (data) { // 성공시 호출될 함수
-				setTimeout(function () { // 1초의 딜레이를 주었습니다.
-			    $spiner.hide(); // 요청이 마무리된후 스피너를 다시 가려줍니다.
-			}, 2000);
-		})
-		
-		.fail(function (err) { // 실패했을때 불러질 함수
-			console.error('데이터 불러오기 실패');
-		});
-    		
-    	}
+    		success:function(data) { // 성공시 호출될 함수
+					for(var i=0; i< data.length; i++){
+						var a = data[i].h_rate;
+										
+			    	$('.col-8').append(
+			   				"<div class='card mb-3 margin-top-lg' >"
+							+"<div class='row no-gutters'>"
+							+"<div class='col-md-4'>"
+							+"<img src='${pageContext.request.contextPath}/resources/hotel_image/"+data[i].h_image+"' class='card-img' height='200px' width='200'></div>"
+							+"<div class='col-md-8'><div class='card-body'>"
+							+"<p class='card-title'><a href='HotelDetail.jsp'></a>"+data[i].h_name+"</p>"
+							+"<c:forEach begin='1' end='4' step='1'><font color='orange'> <label id=text>★</label></font></c:forEach>"
+							+"<p class='card-text'>주소<br>${dto.h_adress }</p><p class='card-text'>1인 ~ 최대 x인</p>"
+							+"<div class='text-right'> <label class='card-title'>최저가 10.000원</label> <br>"
+							+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
+			   			);
+					}
+			},
+			error:function(request,status,error){
+	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+    	});
+     }
     });
-    
 	</script>
 
 
