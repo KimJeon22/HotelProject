@@ -19,16 +19,16 @@ public class MemberDAO {
 
 	public int loginCheck(MemberDTO dto) {
 		int result = 0;
+		int a=0,b=0;
 		
-		System.out.println(dto.getIdcnt());
-		System.out.println(dto.getPwdcnt());
-		dto = temp.selectOne("member.loginidCheck", dto);
-
+		a = temp.selectOne("member.loginidCheck", dto);
+		dto.setIdcnt(a);
 		
 		if (dto.getIdcnt() == 0)
 			result = 1; // id가 없을 때
 		else {
-			dto = temp.selectOne("member.loginpwdCheck", dto);
+			b = temp.selectOne("member.loginpwdCheck", dto);
+			dto.setPwdcnt(b);
 			if (dto.getPwdcnt() == 0)
 				result = 2; // password가 틀릴 때
 			else

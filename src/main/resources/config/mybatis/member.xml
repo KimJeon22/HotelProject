@@ -9,11 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  insert into member values (member_seq.nextval,#{m_id},#{m_pwd},#{m_name},#{m_phone})
 	</insert>
 	
-	<select id="loginidCheck">
+	<select id="loginidCheck" resultType="int">
 		select count(*)as idcnt from member where m_id=#{m_id}
 	</select>
 	
-	<select id="loginpwdCheck">
+	<select id="loginpwdCheck" resultType="int">
 		select count(*)as pwdcnt from member where m_pwd=#{m_pwd}
 	</select>
 	

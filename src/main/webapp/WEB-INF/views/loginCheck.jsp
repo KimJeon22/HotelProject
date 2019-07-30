@@ -30,18 +30,8 @@ div {
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="loginCheck.do">
-			<div>
-				ID <input id="input" name="m_id" type="text" placeholder="ID 입력">
-			</div>
-			<div>
-				password <input id="input" name="m_pwd" type="password"
-					placeholder="비밀번호 입력">
-			</div>
-			<input type="submit" class="btn btn-primary" value="등록" />
-		</form>
-
-
+		<h1>로그인된 id: ${sessionScope.m_id}</h1>
+		<a href="logout.do" class="btn btn-primary">로그아웃</a>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

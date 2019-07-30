@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -20,7 +21,7 @@ public class MemberController {
 	public String board_insert(MemberDTO dto) {
 		dao.dbInsert(dto);
 		
-		return "redirect:list.do";
+		return "redirect:login.do";
 	}
 	
 	@RequestMapping("login.do")
@@ -28,15 +29,19 @@ public class MemberController {
 		return "WEB-INF/views/login.jsp";
 	}
 	
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "WEB-INF/views/loginCheck.jsp";
+	}
+	
 	@RequestMapping("loginCheck.do")
-	public ModelAndView loginCheck(MemberDTO dto) {
-		System.out.println(dto.getIdcnt());
-		System.out.println(dto.getPwdcnt());
-		HttpSession session = null;
+	public ModelAndView loginCheck(@RequestParam("m_id")String m_id, @RequestParam("m_pwd")String m_pwd, MemberDTO dto, HttpSession session) {
+		dto.setM_id(m_id);
+		dto.setM_id(m_pwd);
 		ModelAndView mav = new ModelAndView();
 		int result=0;
 		result=dao.loginCheck(dto);
-		System.out.println(result);
 		
 		if(result == 1) { //없는 id
 			mav.setViewName("WEB-INF/views/login.jsp");
@@ -46,7 +51,7 @@ public class MemberController {
 			mav.addObject("msg","pwd");
 		} else if(result == 3) { //로그인 성공
 			session.setAttribute("m_id", dto.getM_id());
-			mav.setViewName("redirect:list.do");
+			mav.setViewName("WEB-INF/views/loginCheck.jsp");
 		}
 			
 		return mav;
