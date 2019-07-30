@@ -192,6 +192,9 @@ alter table room add( r_inwon number(4));
 alter table booking add(r_inwon number(4));
 alter table hotel add(h_content varchar2(1000));
 alter table reply add( re_id number(4));
+//07-30 수정사항
+alter table room add(r_cheap varchar2(10));
+alter tabel room drop column h_id;
 //더미데이터떄문에 20부터시작
 create sequence hotel_seq start with 20 increment by 1;
 create sequence room_seq start with 20 increment by 1;

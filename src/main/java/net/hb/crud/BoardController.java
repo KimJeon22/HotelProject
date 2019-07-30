@@ -44,8 +44,10 @@ public class BoardController {
 		if( total < 5) end = total;
 		System.out.println(start +"\t시작 -- 끝   " + end);
 		System.out.println(total +" asd" +end);
+		
 		List<BoardDTO> hotelList = dao.dbSelect(start, end);
 		
+		//몇 박인지 계산하기
 		if(dto.getCheckIn_date() == null) {}
 		else {
 			try {
@@ -58,11 +60,12 @@ public class BoardController {
 		        long diffDays = diff / (24 * 60 * 60 * 1000);
 		 
 		        System.out.println("날짜차이=" + diffDays);
-		         
+		        mav.addObject("day", diffDays);
 		    	} catch (ParseException e) {
 		        e.printStackTrace();
 		    	}
 			}
+		
 		
 		mav.addObject("start", start);
 		mav.addObject("end",end);

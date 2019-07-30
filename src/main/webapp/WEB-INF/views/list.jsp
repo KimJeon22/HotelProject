@@ -167,7 +167,8 @@
         					<p class="card-text">주소<br>${dto.h_adress }</p>
         					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
-        						<label class="card-title">최저가 10.000원</label> <br>
+        						<span style="font-size:small;">${day }박당가격</span><br>
+        						<label class="card-title">최저가 ${dto.r_price}원</label> <br>
 								<a href="booking.jsp"><input type="button" class="btn btn-success" value="예약하기"></a>
       						</div>
     					</div>
@@ -228,7 +229,7 @@
 							+"<p class='card-title'><a href='HotelDetail.jsp'></a>"+data[i].h_name+"</p>"
 							+"<c:forEach begin='1' end='4' step='1'><font color='orange'> <label id=text>★</label></font></c:forEach>"
 							+"<p class='card-text'>주소<br>${dto.h_adress }</p><p class='card-text'>1인 ~ 최대 x인</p>"
-							+"<div class='text-right'> <label class='card-title'>최저가 10.000원</label> <br>"
+							+"<div class='text-right'> <label class='card-title'>최저가 "+data[i].r_price+"원</label> <br>"
 							+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
 			   			);
 					}
