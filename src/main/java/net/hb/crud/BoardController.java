@@ -1,18 +1,19 @@
 package net.hb.crud;
 
 
-import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -24,22 +25,37 @@ public class BoardController {
 	@Autowired
 	ServletContext application;
 	
-	
 	@Autowired
 	@Inject
 	BoardDAO dao;
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	
 	@RequestMapping("/list.do")
-	public ModelAndView board_list(BoardDTO dto) {
+	@ResponseBody
+	public ModelAndView board_list(BoardDTO dto, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		List<BoardDTO> hotelList = dao.dbSelect();
+		int total = dao.dbCount();
+		int pageCount = 5;
+		String data = request.getParameter("Gnum");
+		if(data == "" || data == null) data = "1";
+		int pageNum = Integer.parseInt(data);
+		int start = 0, end = 0;
 		
+		start = (pageNum - 1) * 5+1;
+		end = (pageNum) * 5;
+		if( total < pageCount) pageCount = total;
+		System.out.println(start +"\t½ÃÀÛ -- ³¡   " + end);
+		
+		List<BoardDTO> hotelList = dao.dbSelect(start, end);
+		
+		mav.addObject("start", start);
+		mav.addObject("end",end);
+		mav.addObject("pageNum",pageNum);
+		mav.addObject("pageCount", pageCount);
+		mav.addObject("total",total);
 		mav.addObject("HL", hotelList);
 		mav.setViewName("WEB-INF/views/list.jsp");
-		
 		return mav;
 	}
 	
