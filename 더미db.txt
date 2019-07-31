@@ -43,9 +43,9 @@ INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES
 INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (20,'Sroom'	,55000,		4,'I호텔','c','a');
 
 
-col h_name for a20
-col h_adress for a20
-col h_id for a10
-col h_rate for a5
+col h_name for a10
+col h_adress for a15
+col h_id for 999
+col h_rate for 999
 col h_image for a20
-col h_content for a30
+col h_content for a20

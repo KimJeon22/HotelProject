@@ -28,27 +28,27 @@ div {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	var a = 1;
+	var a = 2;
 	$(document).ready(function() {
 		$("#roomAppend").click(function() {
-			a++;
 			if(a<5){
 				$(".asd").append(
 					"<br>"
 					+ "객실 "+a+":"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='bo_title' class='form-control' placeholder='객실 이름 입력'>"
+					+ "<input type='text' name='r_name"+a+"' class='form-control' placeholder='객실 이름 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='bo_title' class='form-control' placeholder='객실 가격 입력'>"
+					+ "<input type='text' name='r_price"+a+"' class='form-control' placeholder='객실 가격 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='bo_title' class='form-control' placeholder='객실 서비스 입력'>"
+					+ "<input type='text' name='r_service"+a+"' class='form-control' placeholder='객실 서비스 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='bo_title' class='form-control' placeholder='객실 최대 인원 입력'>"
+					+ "<input type='text' name='r_inwon"+a+"' class='form-control' placeholder='객실 최대 인원 입력'>"
 					+ "</div>");
 			} else {window.alert("객실은 최대 4개만 가능");}
+			a++;
 		});
 	});
 </script>
