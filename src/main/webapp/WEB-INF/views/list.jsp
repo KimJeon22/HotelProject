@@ -156,7 +156,7 @@
 			<div class="card mb-3 margin-top-lg" >
   				<div class="row no-gutters">
    					<div class="col-md-4">
-      					<img src="${pageContext.request.contextPath}/resources/hotel_image/${dto.h_image}" class="card-img" height="200px" width="200">
+      					<img src="${pageContext.request.contextPath}/resources/hotel_image/${dto.h_image}" class="card-img" height="250px" width="200">
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
@@ -167,8 +167,16 @@
         					<p class="card-text">주소<br>${dto.h_adress }</p>
         					<p class="card-text">1인 ~ 최대 x인</p>
         					<div class="text-right"> 
-        						<span style="font-size:small;">${day }박당가격</span><br>
-        						<label class="card-title">최저가 ${dto.r_price}원</label> <br>
+        						<span style="font-size:small;" id="day" value="${day }">${day }박당가격</span><br>
+        						<c:set var="day" value="${day }" />
+        							<c:choose>
+        								<c:when test="${day > 1}">
+											<label class="card-title" >최저가 ${dto.r_price * day}원</label> <br>
+										</c:when>
+										<c:when test="${day eq 1}">
+											<label class="card-title" ">최저가 ${dto.r_price}원</label> <br>
+										</c:when>
+									</c:choose>
 								<a href="booking.jsp"><input type="button" class="btn btn-success" value="예약하기"></a>
       						</div>
     					</div>
@@ -217,6 +225,8 @@
     			dataType: 'json', // json 타입
     		
     		success:function(data) { // 성공시 호출될 함수
+    				var day = $('#day').attr('value');
+    			
 					for(var i=0; i< data.length; i++){
 						var a = data[i].h_rate;
 										
@@ -224,12 +234,13 @@
 			   				"<div class='card mb-3 margin-top-lg' >"
 							+"<div class='row no-gutters'>"
 							+"<div class='col-md-4'>"
-							+"<img src='${pageContext.request.contextPath}/resources/hotel_image/"+data[i].h_image+"' class='card-img' height='200px' width='200'></div>"
+							+"<img src='${pageContext.request.contextPath}/resources/hotel_image/"+data[i].h_image+"' class='card-img' height='250px' width='200'></div>"
 							+"<div class='col-md-8'><div class='card-body'>"
 							+"<p class='card-title'><a href='HotelDetail.jsp'></a>"+data[i].h_name+"</p>"
 							+"<c:forEach begin='1' end='4' step='1'><font color='orange'> <label id=text>★</label></font></c:forEach>"
 							+"<p class='card-text'>주소<br>${dto.h_adress }</p><p class='card-text'>1인 ~ 최대 x인</p>"
-							+"<div class='text-right'> <label class='card-title'>최저가 "+data[i].r_price+"원</label> <br>"
+							+"<div class='text-right'> <span style='font-size:small;'>"+day+"박당가격</span><br>"
+						
 							+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
 			   			);
 					}
@@ -241,6 +252,16 @@
      }
     });
 	</script>
+<%-- 	+"<c:set var='day' value='"+day+"' />"
+	    					+"<c:choose>"
+	    					+"<c:when test='${day > 1}'>"
+							+"<label class='card-title'>최저가 ${dto.r_price * day}원</label> <br>"
+							+"</c:when>"
+							+"<c:when test='${day eq 1}'>"
+							+"<label class='card-title'>최저가 ${dto.r_price}원</label> <br>"
+							+"</c:when>"
+							+"</c:choose>" --%>
+
 
 
 </body>

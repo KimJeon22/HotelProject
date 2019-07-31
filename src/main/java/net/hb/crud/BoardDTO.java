@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class BoardDTO {
-	int h_id, h_rate,start, end, r_price;
+	int h_id, h_rate,start, end, r_price, multi_price;
 	String h_name, h_adress, h_image, h_content;
 	String checkIn_date, checkOut_date;
 }

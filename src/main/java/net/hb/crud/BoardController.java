@@ -48,7 +48,7 @@ public class BoardController {
 		List<BoardDTO> hotelList = dao.dbSelect(start, end);
 		
 		//몇 박인지 계산하기
-		if(dto.getCheckIn_date() == null) {}
+		if(dto.getCheckIn_date() == null) {mav.addObject("day", 1);}
 		else {
 			try {
 		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -58,15 +58,12 @@ public class BoardController {
 		        // 시간차이를 시간,분,초를 곱한 값으로 나누면 하루 단위가 나옴
 		        long diff = endDate.getTime() - beginDate.getTime();
 		        long diffDays = diff / (24 * 60 * 60 * 1000);
-		 
-		        System.out.println("날짜차이=" + diffDays);
 		        mav.addObject("day", diffDays);
+		        
 		    	} catch (ParseException e) {
 		        e.printStackTrace();
 		    	}
 			}
-		
-		
 		mav.addObject("start", start);
 		mav.addObject("end",end);
 		mav.addObject("total",total);
