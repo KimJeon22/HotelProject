@@ -42,8 +42,6 @@ public class BoardController {
 		int start = 1, end = 5;
 		
 		if( total < 5) end = total;
-		System.out.println(start +"\t½ÃÀÛ -- ³¡   " + end);
-		System.out.println(total +" asd" +end);
 		
 		List<BoardDTO> hotelList = dao.dbSelect(start, end);
 		
@@ -78,11 +76,14 @@ public class BoardController {
 		
 		start = (data - 1) * 5+1;
 		end = (data) * 5;
+		System.out.println(start +" asd " + end);
 		int total = dao.dbCount();
 		if( total < pageCount) pageCount = total;
 		List<BoardDTO> dto = dao.dbSelect(start, end);
+		dto.get(0).setStart(start);
+		dto.get(0).setEnd(end);
 		
-	    return dto;
+		return dto;
 	}
 	
 	

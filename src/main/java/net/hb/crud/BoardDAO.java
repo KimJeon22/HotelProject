@@ -22,7 +22,6 @@ public class BoardDAO {
 		dto.setStart(start);
 		dto.setEnd(end);
 		List<BoardDTO> list = temp.selectList("board.selectAll", dto);
-		System.out.println("asdasd");
 		return list;
 	}
 	
