@@ -5,10 +5,14 @@
 		
 	<typeAliases>
 	   <typeAlias alias="dto" type="net.hb.crud.BoardDTO"/>
+	   
+	   
 	</typeAliases>
 	
 	<mappers>
+		
 		<mapper resource="config/mybatis/board.xml"/>
 		<mapper resource="config/mybatis/member.xml"/>
+		
 	</mappers>
 </configuration>
