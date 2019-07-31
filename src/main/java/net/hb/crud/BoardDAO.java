@@ -30,8 +30,10 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public BoardDTO dbDetail(String title) {
-		BoardDTO list = (BoardDTO) temp.selectOne("board.detail", title);
+	public BoardDTO dbDetail(int data) {
+		BoardDTO list = temp.selectOne("board.detail", data);
 		return list;
 	}
+
+	
 }

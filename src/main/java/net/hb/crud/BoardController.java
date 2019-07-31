@@ -88,12 +88,11 @@ public class BoardController {
 	
 	
 	@RequestMapping("/Detail.do")
-	public ModelAndView board_detail(BoardDTO dto, @RequestParam("Title") String data) {
+	public ModelAndView board_detail(BoardDTO dto, @RequestParam("Gidx") int data) {
 		ModelAndView mav = new ModelAndView();
 		BoardDTO dtos = dao.dbDetail(data);
-		
 		mav.addObject("LG", dtos);
-		mav.setViewName("WEB-INF/views/boardDetail.jsp");
+		mav.setViewName("WEB-INF/views/HotelDetail.jsp");
 		return mav;
 	}
 }

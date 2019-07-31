@@ -9,7 +9,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title> [index.jsp]</title>
   <script type="text/javascript">
-    window.setTimeout("location.href='login.do'",100);
+    window.setTimeout("location.href='list.do'",100);
   </script>
 </head>
 <body>
