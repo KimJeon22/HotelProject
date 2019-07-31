@@ -21,9 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{hobby}, #{img_file_name} )
 	</insert>
 
-	<select id="detail" resultType="net.hb.crud.BoardDTO">
-		select * from hobby where
-		hobby_idx = #{hobby_idx}
+	<select id="detail" resultType="net.hb.crud.BoardDTO" parameterType="int">
+		select * from hotel where h_id = #{h_id}
 	</select>
 
 	<delete id="del" parameterType="int">
