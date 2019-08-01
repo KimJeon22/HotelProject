@@ -75,18 +75,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/list.ajax")
-	public @ResponseBody List<BoardDTO> AjaxView(@RequestParam("Gnum") int data, @RequestParam("adress") String adress, BoardDTO dto)  {
+	public @ResponseBody List<BoardDTO> AjaxView(
+	@RequestParam("Gnum") int data, @RequestParam("adress") String adress, @RequestParam("rate") int rate, BoardDTO dto)  {
 		int start = 0, end = 0;
 		
 		start = (data - 1) * 5+1;
 		end = (data) * 5;
 		System.out.println(start +" asd " + end);
 		int total = dao.dbCount();
-		if( total < pageCount) pageCount = total;
+		if( total < 5) end = total;
 		
-		List<BoardDTO> ldto = dao.dbSelect(start, end, adress );
-		ldto.get(0).setStart(start);
-		ldto.get(0).setEnd(end);
+		List<BoardDTO> ldto = dao.dbDetailSelect(start, end, adress, rate);
 		
 		return ldto;
 	}

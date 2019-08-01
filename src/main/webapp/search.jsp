@@ -63,10 +63,13 @@ label{
 		  var now = new Date();
 	      var year= now.getFullYear();
 	      var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-	      var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-	      var chan_val = year + '-' + mon + '-' + day;
+	      var day = now.getDate()>9 ? ''+now.getDate() : '0'+(now.getDate());
+	      var tommorow = now.getDate()>9 ? ''+now.getDate() : '0'+(now.getDate()+1);
+	      var chan_val1 = year + '-' + mon + '-' + day;
+	      var chan_val2 = year + '-' + mon + '-' + tommorow;
 	      
-	      $('.date').val(chan_val);
+	      $('.date1').val(chan_val1);
+	      $('.date2').val(chan_val2);
 	}
 
    function plus(){
@@ -108,10 +111,10 @@ label{
     </div>
   
     <label for="checkin">체크인</label>
-    <input id="date" class="date" type="date" name="CheckIn_date">
+    <input id="date" class="date1" type="date" name="CheckIn_date">
 
     <label for="checkout">체크아웃</label>
-     <input id="date" type="date" name="CheckOut_date">
+     <input id="date" class="date2" type="date" name="CheckOut_date">
      
      <div >
         <label for="name">인원수</label><br>

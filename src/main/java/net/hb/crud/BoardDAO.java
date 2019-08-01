@@ -23,6 +23,17 @@ public class BoardDAO {
 		dto.setEnd(end);
 		dto.setH_adress(adress);
 		List<BoardDTO> list = temp.selectList("board.selectAll", dto);
+		return list;
+	}
+	
+	public List<BoardDTO> dbDetailSelect(int start, int end, String adress, int rate) {
+		BoardDTO dto = new BoardDTO();
+		dto.setStart(start);
+		dto.setEnd(end);
+		dto.setH_adress(adress);
+		dto.setH_rate(rate);
+		System.out.println("dao"+rate);
+		List<BoardDTO> list = temp.selectList("board.selectDetail", dto);
 		
 		return list;
 	}
@@ -36,6 +47,5 @@ public class BoardDAO {
 		BoardDTO list = temp.selectOne("board.detail", data);
 		return list;
 	}
-
 	
 }
