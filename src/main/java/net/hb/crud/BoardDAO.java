@@ -17,11 +17,13 @@ public class BoardDAO {
 	@Autowired
 	SqlSessionTemplate temp;
 	
-	public List<BoardDTO> dbSelect(int start, int end) {
+	public List<BoardDTO> dbSelect(int start, int end, String adress) {
 		BoardDTO dto = new BoardDTO();
 		dto.setStart(start);
 		dto.setEnd(end);
+		dto.setH_adress(adress);
 		List<BoardDTO> list = temp.selectList("board.selectAll", dto);
+		
 		return list;
 	}
 	

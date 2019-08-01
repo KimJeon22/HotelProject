@@ -53,7 +53,7 @@
 
 	<!-- nav 화면 -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
+	  <a class="navbar-brand" href="Mainpage.jsp">Navbar</a>
  	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -70,10 +70,10 @@
 	<!--  스티키 nav -->
 		<nav class="navbar sticky-top navbar-light bg-light container" id="navbar">
   			<form class="form-inline" method="get" action="list.do">
-    			<input class="form-control mr-sm-2" type="search" placeholder="지역 검색">
-    			<input class="form-control mr-sm-2" type="date" name="checkIn_date">
-    			<input class="form-control mr-sm-2" type="date" name="checkOut_date">
-    			<input class="form-control mr-sm-2" type="search" placeholder="인원 수">
+    			<input class="form-control mr-sm-2" type="text" id="adress" placeholder="지역 검색" name="h_adress" value="${adress }" >
+    			<input class="form-control mr-sm-2" type="date" name="checkIn_date" value="${checkIn }">
+    			<input class="form-control mr-sm-2" type="date" name="checkOut_date" value=${checkOut }>
+    			<input class="form-control mr-sm-2" type="text" placeholder="인원 수">
     			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   			</form>	
 		</nav>
@@ -210,7 +210,8 @@
 	<script type="text/javascript">
 	var $loader = $('.loader'); // 스피너 추가
 	var page = 1;
-				
+	var adress = $('#adress').val();
+	
     $(window).scroll(function() {
     	var maxHeight = $(document).height();
     	var currentScroll = $(window).scrollTop() + $(window).height();
@@ -218,15 +219,16 @@
 	    
      if (maxHeight == currentScroll) {
     		page++;
+    		console.log(adress);
     		
     		$.ajax({
     			type: 'GET', // get 방식으로 요청
     			url: "list.ajax", // 데이터를 불러오는 json-server 주소입니다 .
-    			data : { "Gnum" : page },
+    			data : { "Gnum" : page, "adress" : adress },
     			dataType: 'json', // json 타입
     		
     		success:function(data) { // 성공시 호출될 함수
-
+		
     				if(data.length < 1 ){ }
     				else{
     					
@@ -265,7 +267,6 @@
     			} // else end
 			}, // success end
 			error:function(request,status,error){
-	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	       } // error end
     	}); // ajax end
      } // if end

@@ -39,11 +39,12 @@ public class BoardController {
 	public ModelAndView board_list(BoardDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		int total = dao.dbCount();
-		int start = 1, end = 5;
+		int start = 0, end = 5;
 		
 		if( total < 5) end = total;
 		
-		List<BoardDTO> hotelList = dao.dbSelect(start, end);
+		List<BoardDTO> hotelList = dao.dbSelect(start, end, dto.getH_adress());
+		 
 		
 		//몇 박인지 계산하기
 		if(dto.getCheckIn_date() == null) {mav.addObject("day", 1);}
@@ -66,12 +67,15 @@ public class BoardController {
 		mav.addObject("end",end);
 		mav.addObject("total",total);
 		mav.addObject("HL", hotelList);
+		mav.addObject("adress", dto.getH_adress());
+		mav.addObject("checkIn", dto.getCheckIn_date());
+		mav.addObject("checkOut",dto.getCheckOut_date());
 		mav.setViewName("WEB-INF/views/list.jsp");
 		return mav;
 	}
 	
 	@RequestMapping("/list.ajax")
-	public @ResponseBody List<BoardDTO> AjaxView(@RequestParam("Gnum") int data)  {
+	public @ResponseBody List<BoardDTO> AjaxView(@RequestParam("Gnum") int data, @RequestParam("adress") String adress, BoardDTO dto)  {
 		int start = 0, end = 0;
 		
 		start = (data - 1) * 5+1;
@@ -79,11 +83,12 @@ public class BoardController {
 		System.out.println(start +" asd " + end);
 		int total = dao.dbCount();
 		if( total < pageCount) pageCount = total;
-		List<BoardDTO> dto = dao.dbSelect(start, end);
-		dto.get(0).setStart(start);
-		dto.get(0).setEnd(end);
 		
-		return dto;
+		List<BoardDTO> ldto = dao.dbSelect(start, end, adress );
+		ldto.get(0).setStart(start);
+		ldto.get(0).setEnd(end);
+		
+		return ldto;
 	}
 	
 	
