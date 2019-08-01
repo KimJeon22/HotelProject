@@ -43,7 +43,7 @@
 			</div>
 		
 			<div class="col-md-6">
-				<h3 class="dark-grey">검색한  </h3>
+				<h3 class="dark-grey">검색한  ${LG.t_area}</h3>
 				<img src="resources/images/hydran.png">
 			</div>
 		</div>
