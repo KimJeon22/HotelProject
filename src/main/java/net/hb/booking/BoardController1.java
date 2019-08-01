@@ -47,7 +47,7 @@ public class BoardController1 {
 		dao.boardInsert(hdto, rdto);
 		
 		
-		return "redirect:list.do";
+		return "WEB-INF/views/index.jsp";
 	}
 
 }
