@@ -214,6 +214,7 @@
     $(window).scroll(function() {
     	var maxHeight = $(document).height();
     	var currentScroll = $(window).scrollTop() + $(window).height();
+	    var price_append;
 	    
      if (maxHeight == currentScroll) {
     		page++;
@@ -228,11 +229,24 @@
 
     				if(data.length < 1 ){ }
     				else{
-    					console.log(data);
     					
 					for(var i=0; i< data.length; i++){
 						var a = data[i].h_rate;
 						
+					<c:forEach var="dto" items="${HL }" begin="${data[0].start}" end="${data[0].end}" >
+						console.log(${data[i].r_price});
+					
+				    	<c:set var="day" value="${day }" />
+							<c:choose>
+								<c:when test="${day > 1}">
+									price_append = "<label clas='card-title'> 최저가"+data[i].r_price * day+"원</label> <br>";
+								</c:when>
+								<c:when test="${day eq 1}">
+									price_append = "<label class='card-title'>최저가"+data[i].r_price+"원</label> <br>";
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							
 			    	$('.col-8').append(
 			   				"<div class='card mb-3 margin-top-lg' >"
 							+"<div class='row no-gutters'>"
@@ -243,31 +257,19 @@
 							+"<c:forEach begin='1' end='4' step='1'><font color='orange'> <label id=text>★</label></font></c:forEach>"
 							+"<p class='card-text'>주소<br>${dto.h_adress }</p><p class='card-text'>1인 ~ 최대 x인</p>"
 							+"<div class='text-right'> <span style='font-size:small;'>"+${day}+"박당가격</span><br>"
-			   			);
+							+price_append
+							+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
+			   				);
 			    	
-			    	<c:forEach var="dto" items="${HL }" begin=data[0].start end=data[0].end >
-			    	<c:set var="day" value="${day }" />
-						<c:choose>
-							<c:when test="${day > 1}">
-								$('.col-8').append("<label class='card-title'> 최저가"+${dto.r_price * day}+"원</label> <br>");
-							</c:when>
-							<c:when test="${day eq 1}">
-								$('.col-8').append("<label class='card-title'>최저가"+ ${dto.r_price}+"원</label> <br>");
-							</c:when>
-						</c:choose>
-					</c:forEach>
-						
-					$('.col-8').append("<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>");
-
-					}
-    				}
-			},
+					}//for end
+    			} // else end
+			}, // success end
 			error:function(request,status,error){
 	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	       }
-    	});
-     }
-    });
+	       } // error end
+    	}); // ajax end
+     } // if end
+    }); // function end
 	</script>
 
 
