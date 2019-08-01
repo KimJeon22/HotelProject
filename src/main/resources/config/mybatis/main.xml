@@ -10,12 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      </select>
      
      <select id="hsearch" resultType="net.hb.main.MainDTO">
-       select * from hotel   
+       select rownum rn, r_price,h_id,h_name,h_adress,h_image,h_rate from (
+       select h.h_name as name, r.r_price from room r, hotel h where h.h_name = r.h_name and r.r_cheap='c') r right join 
+       (select h.* from hotel h) h on h.h_name = r.name
      </select>
-     
-     <select id="rprice" resultType="net.hb.main.MainDTO">
-       select r_price from room where h_name = #{h_name} and r_name = Sroom 
-     </select>
-     
+
 
 </mapper>
