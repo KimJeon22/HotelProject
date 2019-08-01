@@ -239,7 +239,7 @@
 				    	<c:set var="day" value="${day }" />
 							<c:choose>
 								<c:when test="${day > 1}">
-									price_append = "<label clas='card-title'> 최저가"+data[i].r_price * day+"원</label> <br>";
+									price_append = "<label clas='card-title'> 최저가"+data[i].r_price * ${day}+"원</label> <br>";
 								</c:when>
 								<c:when test="${day eq 1}">
 									price_append = "<label class='card-title'>최저가"+data[i].r_price+"원</label> <br>";
