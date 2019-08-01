@@ -11,7 +11,7 @@ public class MainDTO {
   String h_name, h_adress, h_image;
 	 
 //room
-  int r_id;
+  int r_id, r_price;
   String r_name;
 	
 //booking

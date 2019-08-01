@@ -33,25 +33,48 @@ public class MainController {
 	MainDAO dao;
 	
 
+	
 	/*
 	 * @RequestMapping("/tourSearch.do") public String
 	 * tour_search( @RequestParam("timg") String timg, Model model) {
 	 * System.out.println("넘어온이미지이름=" + timg); MainDTO dto = dao.dbTselect(timg);
-	 * model.addAttribute("dto", dto); System.out.println("투어컨트롤러완료");
+	 * model.addAttribute("LG", dto); System.out.println("첫번째투어컨트롤러완료");
 	 * 
-	 * return "WEB-INF/views/MainDetail.jsp"; }
+	 * return "WEB-INF/views/hotelList.do"; }
 	 */
+	
 	 
-	@RequestMapping("/tourSearch.do")
-	public ModelAndView toursearch(BoardDTO dto, @RequestParam("timg") String timg ) {
-		System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
-		ModelAndView mav = new ModelAndView();
-		MainDTO dtos = dao.dbTselect(timg);
-		mav.addObject("LG", dtos);
-		System.out.println("컨트롤러 완료");
-		mav.setViewName("WEB-INF/views/MainDetail.jsp");
-		return mav;
-	}
+	
+	  @RequestMapping("/tourSearch.do") 
+	  public ModelAndView toursearch(MainDTO dto, @RequestParam("timg") String timg ) {
+		  System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
+		  ModelAndView mav = new ModelAndView(); 
+		  //관광지정보
+		  MainDTO dtos = dao.dbTselect(timg); 
+		  //호텔정보&룸가격 
+		  List<MainDTO> dtoss = dao.dbHselect();
+		/*
+		 * for(int i=0; i<dtoss.size(); i++) { MainDTO dt = new MainDTO();
+		 * //System.out.println("컨트롤러에서 나온호텔이름=" + dtoss.get(i).getH_name()); String
+		 * hname = dtoss.get(i).getH_name(); }
+		 */
+		  System.out.println(dto.getH_name());
+		  mav.addObject("LG",dtos); 
+		  mav.addObject("HG", dtoss);
+				  
+		  System.out.println("컨트롤러 완료");
+		  mav.setViewName("WEB-INF/views/MainDetail.jsp"); 	  
+	  return mav; }
+	 
+	  
+	/*
+	 * @RequestMapping("/hotelList.do") public ModelAndView hotel_list() {
+	 * ModelAndView mav = new ModelAndView(); List<MainDTO> HG = dao.dbHselect();
+	 * mav.addObject("HG", HG); mav.setViewName("WEB-INF/views/MainDetail.jsp");
+	 * System.out.println("두번쨰투어컨트롤러완료"); return mav; }
+	 */
+	  
+	  
 	
 	
 }//class END

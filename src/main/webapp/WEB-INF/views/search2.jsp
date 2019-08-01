@@ -50,6 +50,12 @@
 
 label{
   color: white;
+  font-size: large;
+}
+
+input{
+  font-size: small;
+
 }
 
 </style>

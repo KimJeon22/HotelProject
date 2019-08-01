@@ -9,5 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        select * from travel where t_image = #{t_image}
      </select>
      
+     <select id="hsearch" resultType="net.hb.main.MainDTO">
+       select * from hotel   
+     </select>
+     
+     <select id="rprice" resultType="net.hb.main.MainDTO">
+       select r_price from room where h_name = #{h_name} and r_name = Sroom 
+     </select>
+     
 
 </mapper>
