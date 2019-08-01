@@ -68,7 +68,7 @@
 </nav>
 	
 	<!--  스티키 nav -->
-		<nav class="navbar sticky-top navbar-light bg-light container" id="navbar">
+	<nav class="navbar sticky-top navbar-light bg-light container" id="navbar">
   			<form class="form-inline" method="get" action="list.do">
     			<input class="form-control mr-sm-2" type="text" id="adress" placeholder="지역 검색" name="h_adress" value="${adress }" >
     			<input class="form-control mr-sm-2" type="date" name="checkIn_date" value="${checkIn }">
@@ -76,7 +76,7 @@
     			<input class="form-control mr-sm-2" type="text" placeholder="인원 수">
     			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   			</form>	
-		</nav>
+		</nav> 
 
 	<!--  container  -->
 	<div class="container">
