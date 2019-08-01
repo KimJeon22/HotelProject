@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<scriptsrc="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 
 <style type="text/css">
 #htl_name {
+font-size: 18pt;
 	border-style: solid;
 	background-color: lightblue;
 }
@@ -166,13 +168,14 @@
 
 
 	<div id="htl_name">
-		<h1>제주 신라 호텔</h1>
+		${LG.h_name}
+		
 	</div>
 
 	<div style="color: blue; font-size: 2.0em;">주소지:</div>
 
 	<div class="htl_loca">
-		<p>중문관광로72번길 75, 서귀포, 대한민국</p>
+		<p>${LG.h_adress}</p>
 		<hr>
 	</div>
 
@@ -180,19 +183,19 @@
 	<div id="carousel_section">
 		<ul>
 			<li><img
-				src="${pageContext.request.contextPath}/resources/images/a1.jpg"
+				src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
 				width="150" height="200"></li>
 			<li><img
-				src="${pageContext.request.contextPath}/resources/images/a2.jpg"
+				src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
 				width="150" height="200"></li>
 			<li><img
-				src="${pageContext.request.contextPath}/resources/images/a3.jpg"
+				src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
 				width="150" height="200"></li>
 			<li><img
-				src="${pageContext.request.contextPath}/resources/images/a4.jpg"
+				src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
 				width="150" height="200"></li>
 			<li><img
-				src="${pageContext.request.contextPath}/resources/images/a5.jpg"
+				src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
 				width="150" height="200"></li>
 		</ul>
 	</div>

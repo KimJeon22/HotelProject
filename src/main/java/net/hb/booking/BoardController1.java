@@ -22,17 +22,19 @@ public class BoardController1 {
 	@RequestMapping("/boardInsert.do")
 	public String board_detail(MultipartHttpServletRequest multipartHttpServletRequest, HotelDTO hdto, RoomDTO rdto)
 			throws IOException {
-		String path = application.getRealPath("/resources/upload");
-		String fileName = null;
+		String path = application.getRealPath("/resources/upload/");
 		List<MultipartFile> files = multipartHttpServletRequest.getFiles("files");
 		File file = new File(path);
+		String fileName = files.get(0).getOriginalFilename();
 		for (int i = 0; i < files.size(); i++) {
-			fileName += files.get(i).getOriginalFilename()+"/";
+			
 			file = new File(path + files.get(i).getOriginalFilename());
 			files.get(i).transferTo(file);
+			if(i>=1) {fileName +="/" + files.get(i).getOriginalFilename();}
 		}
-		System.out.println(fileName);
-		return "redirect:/";
+		hdto.setH_image(fileName);
+		
+		return "WEB-INF/views/BoardWirte.jsp";
 	}
 
 }

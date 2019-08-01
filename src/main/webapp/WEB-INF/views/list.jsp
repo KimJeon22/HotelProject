@@ -160,7 +160,7 @@
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
-        					<p class="card-title"><a href="HotelDetail.jsp">${dto.h_name }</a></p>
+        					<p class="card-title"><a href="Detail.do?Gidx=${dto.h_id}">${dto.h_name}</a></p>
         					<c:forEach begin="1" end="${dto.h_rate }" step="1">
 								<font color="orange"> <label id=text>★</label></font>
 							</c:forEach>
@@ -174,7 +174,7 @@
 											<label class="card-title" >최저가 ${dto.r_price * day}원</label> <br>
 										</c:when>
 										<c:when test="${day eq 1}">
-											<label class="card-title" ">최저가 ${dto.r_price}원</label> <br>
+											<label class="card-title" >최저가 ${dto.r_price}원</label> <br>
 										</c:when>
 									</c:choose>
 								<a href="booking.jsp"><input type="button" class="btn btn-success" value="예약하기"></a>
@@ -214,8 +214,9 @@
     $(window).scroll(function() {
     	var maxHeight = $(document).height();
     	var currentScroll = $(window).scrollTop() + $(window).height();
+	    var price_append;
 	    
-     if (maxHeight <= currentScroll+100) {
+     if (maxHeight == currentScroll) {
     		page++;
     		
     		$.ajax({
@@ -225,11 +226,27 @@
     			dataType: 'json', // json 타입
     		
     		success:function(data) { // 성공시 호출될 함수
-    				var day = $('#day').attr('value');
-    			
+
+    				if(data.length < 1 ){ }
+    				else{
+    					
 					for(var i=0; i< data.length; i++){
 						var a = data[i].h_rate;
-										
+						
+					<c:forEach var="dto" items="${HL }" begin="${data[0].start}" end="${data[0].end}" >
+						console.log(${data[i].r_price});
+					
+				    	<c:set var="day" value="${day }" />
+							<c:choose>
+								<c:when test="${day > 1}">
+									price_append = "<label clas='card-title'> 최저가"+data[i].r_price * day+"원</label> <br>";
+								</c:when>
+								<c:when test="${day eq 1}">
+									price_append = "<label class='card-title'>최저가"+data[i].r_price+"원</label> <br>";
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							
 			    	$('.col-8').append(
 			   				"<div class='card mb-3 margin-top-lg' >"
 							+"<div class='row no-gutters'>"
@@ -239,28 +256,22 @@
 							+"<p class='card-title'><a href='HotelDetail.jsp'></a>"+data[i].h_name+"</p>"
 							+"<c:forEach begin='1' end='4' step='1'><font color='orange'> <label id=text>★</label></font></c:forEach>"
 							+"<p class='card-text'>주소<br>${dto.h_adress }</p><p class='card-text'>1인 ~ 최대 x인</p>"
-							+"<div class='text-right'> <span style='font-size:small;'>"+day+"박당가격</span><br>"
-						
+							+"<div class='text-right'> <span style='font-size:small;'>"+${day}+"박당가격</span><br>"
+							+price_append
 							+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
-			   			);
-					}
-			},
+			   				);
+			    	
+					}//for end
+    			} // else end
+			}, // success end
 			error:function(request,status,error){
 	        	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	       }
-    	});
-     }
-    });
+	       } // error end
+    	}); // ajax end
+     } // if end
+    }); // function end
 	</script>
-<%-- 	+"<c:set var='day' value='"+day+"' />"
-	    					+"<c:choose>"
-	    					+"<c:when test='${day > 1}'>"
-							+"<label class='card-title'>최저가 ${dto.r_price * day}원</label> <br>"
-							+"</c:when>"
-							+"<c:when test='${day eq 1}'>"
-							+"<label class='card-title'>최저가 ${dto.r_price}원</label> <br>"
-							+"</c:when>"
-							+"</c:choose>" --%>
+
 
 
 

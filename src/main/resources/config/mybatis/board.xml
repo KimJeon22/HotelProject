@@ -6,7 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="board">
 	
 	<select id="selectAll" resultType="net.hb.crud.BoardDTO">
-		select * from room r,hotel h where h.h_name = r.h_name and r.r_cheap='c'
+		select r_price,rn,h_id,h_name,h_adress,h_image,h_rate from (select h.h_name as name, r.r_price from room r,hotel h where h.h_name = r.h_name and r.r_cheap='c') r right join  (select rownum rn, h.* from hotel h) h
+		 on h.h_name = r.name
+		 where rn between #{start} and #{end}
 	</select>
 	
 	<select id="countAll" resultType="int">
@@ -21,9 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{hobby}, #{img_file_name} )
 	</insert>
 
-	<select id="detail" resultType="net.hb.crud.BoardDTO">
-		select * from hobby where
-		hobby_idx = #{hobby_idx}
+	<select id="detail" resultType="net.hb.crud.BoardDTO" parameterType="int">
+		select * from hotel where h_id = #{h_id}
 	</select>
 
 	<delete id="del" parameterType="int">

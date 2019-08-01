@@ -1,0 +1,76 @@
+﻿
+update hotel set h_content='
+This property is a 1-minute walk from String Street Station on lines A, C, and E, and a 30-minute drive from John F Kennedy International Airport. Nearby attractions include Times Square and Broadway within a 10-minute drive and Central Park is a 20minute drive away. The Statue of Liberty can be reached in 10 minutes by car.
+' where h_id=2;
+
+update hotel set h_content='
+The hotel is a 5-minute walk from Times Square-42 Street Station on lines 1, 2 and 3. Nearby attractions include the Rockefeller Center within a 10-minute walk, as well as Times Square in New York City. Nearby attractions include the New York City Center and the New York Museum of Modern Art.' where h_id=3;
+
+update hotel set h_content='
+This 3-star New York City hotel features stylish rooms and facilities and is just a few minutes walk from the 86th Street IRT Lexington Avenue Line. Guests are provided with free Wi-Fi. ' where h_id=4;
+
+update hotel set h_content='
+Alo Soho Hotel is close to Franklin Street Irt Broadway 7 Avenue Line so you can easily get around New York City. Within walking distance are Canal Street and the Downtown Community Television Center. ' where h_id=5;
+
+update hotel set h_content='This hostel is a 2-minute walk from 103 Street Station on Line 1 and a 5-minute walk from New York Broadway and River Side Del Park. Central Park is also a 10-minute walk away. It is a 10-minute drive to Times Square
+ ' where h_id=6;
+
+update hotel set h_content='
+Located in Manhattan, this hotel offers relaxing guestrooms and state-of-the-art amenities. Valet parking, 24-hour reception and concierge services are also available.  ' where h_id=7;
+
+
+update hotel set h_content='
+Located in Manhattan, this hotel offers relaxing guestrooms and state-of-the-art amenities. Valet parking, 24-hour reception and concierge services are also available.
+ ' where h_id=8;
+
+update hotel set h_content='
+The hotel is a 1-minute walk from the 42nd Street - Port Osori Tibus Terminal Station on the A, C, and E lines. It is also a 3-minute walk to Times Square and attractions such as Madison Square Garden, the Empire State Building and the J.Vitts Convention Center are a 15-minute walk away.  ' where h_id=8;
+
+update hotel set h_content='
+This property is a 1-minute walk from String Street Station on lines A, C, and E, and a 30-minute drive from John F Kennedy International Airport. Nearby attractions include Times Square and Broadway within a 10-minute drive and Central Park is a 20minute drive away. The Statue of Liberty can be reached in 10 minutes by car.
+ ' where h_id=9;
+
+update hotel set h_content='
+This 3-star New York City hotel features stylish rooms and facilities and is just a few minutes walk from the 86th Street IRT Lexington Avenue Line. Guests are provided with free Wi-Fi.
+ ' where h_id=10;
+
+update hotel set h_content='
+Alo Soho Hotel is close to Franklin Street Irt Broadway 7 Avenue Line so you can easily get around New York City. Within walking distance are Canal Street and the Downtown Community Television Center. ' where h_id=5;
+ ' where h_id=11;
+
+update hotel set h_content='
+This 3-star Manhattan hotel has 3 guestrooms for the choosing. A short walk will take you to Madison Square Park and Flatiron Building.
+ ' where h_id=12;
+
+update hotel set h_content='
+Marine Waterloo is about a 1 minute walk from the Rambus North station on the Beaclys line and about 40 minutes drive from the Heathrow airport. Nearby attractions include the City Life London Aquarium, about 10 minutes 'walk, and Big Ben, about 3 minutes' drive away.' where h_id=13;
+
+update hotel set h_content='
+Located on a beautiful beach, the hotel was completed in 2011 and is 600 meters from Marble Mountain. It is less than 25 minutes from Da Nang International Airport and 5 kilometers from the Museum of Natural History and 20 kilometers from Hoi An.
+ ' where h_id=14;
+
+update hotel set h_content='
+Haian Beach Hotel & Spa features an infinity pool overlooking Mike Beach on the rooftop and is a 15-minute drive from Da Nang International Airport. Nearby attractions include Marble Mountain, Non Nuove Beach and Asia Park, which can be reached in around 10 minutes by car.
+ ' where h_id=15;
+
+update hotel set h_content='
+This property is a 1-minute walk from String Street Station on lines A, C, and E, and a 30-minute drive from John F Kennedy International Airport. Nearby attractions include Times Square and Broadway within a 10-minute drive and Central Park is a 20minute drive away. The Statue of Liberty can be reached in 10 minutes by car.
+ ' where h_id=16;
+
+update hotel set h_content='
+Located on a beautiful beach, the hotel was completed in 2011 and is 600 meters from Marble Mountain. It is less than 25 minutes from Da Nang International Airport and 5 kilometers from the Museum of Natural History and 20 kilometers from Hoi An. ' where h_id=17;
+
+update hotel set h_content='
+This property is a 1-minute walk from String Street Station on lines A, C, and E, and a 30-minute drive from John F Kennedy International Airport. Nearby attractions include Times Square and Broadway within a 10-minute drive and Central Park is a 20minute drive away. The Statue of Liberty can be reached in 10 minutes by car.' where h_id=18;
+
+update hotel set h_content='
+Located on a beautiful beach, the hotel was completed in 2011 and is 600 meters from Marble Mountain. It is less than 25 minutes from Da Nang International Airport and 5 kilometers from the Museum of Natural History and 20 kilometer
+ ' where h_id=19;
+
+update hotel set h_content='
+This property is a 1-minute walk from String Street Station on lines A, C, and E, and a 30-minute drive from John F Kennedy International Airport. Nearby attractions include Times Square and Broadway within a 10-minute drive and Central Park is a 20minute drive away. The Statue of Liberty can be reached in 10 minutes by car.
+ ' where h_id=20;
+
+
+
+col h_content for a60;
