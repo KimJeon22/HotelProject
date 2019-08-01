@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				on h.h_name = r.name
 				where h_adress like '%'||#{h_adress}||'%'
 				<if test = "h_rate != null">
-				and h_rate > #{h_rate})
+				and h_rate >= #{h_rate})
 				</if>
 		where rn between #{start} and #{end}
 	</select>

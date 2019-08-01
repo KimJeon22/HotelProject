@@ -222,6 +222,7 @@
 		if( checkedRate == true) rateVal= $(this).val();
 		else rateVal = 0;
 		console.log(rateVal);
+		$('.col-8').empty();
 		ajax();
 	});
 	
