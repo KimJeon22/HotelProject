@@ -10,22 +10,32 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import net.hb.crud.BoardDAO;
 
 @Controller
 public class BoardController1 {
 
 	@Autowired
 	ServletContext application;
-
-	@RequestMapping("/boardInsert.do")
-	public String board_detail(MultipartHttpServletRequest multipartHttpServletRequest, HotelDTO hdto, RoomDTO rdto)
+	
+	@Autowired
+	@Inject
+	BoardDAO1 dao;
+	
+	@RequestMapping(value="/boardInsert.do" , method = RequestMethod.POST)
+	public String board_Insert(MultipartHttpServletRequest multipartHttpServletRequest, HotelDTO hdto, RoomDTO rdto)
 			throws IOException {
 		String path = application.getRealPath("/resources/upload/");
 		List<MultipartFile> files = multipartHttpServletRequest.getFiles("files");
 		File file = new File(path);
 		String fileName = files.get(0).getOriginalFilename();
+		
+		
+		
 		for (int i = 0; i < files.size(); i++) {
 			
 			file = new File(path + files.get(i).getOriginalFilename());
@@ -34,7 +44,10 @@ public class BoardController1 {
 		}
 		hdto.setH_image(fileName);
 		
-		return "WEB-INF/views/BoardWirte.jsp";
+		dao.boardInsert(hdto, rdto);
+		
+		
+		return "redirect:list.do";
 	}
 
 }

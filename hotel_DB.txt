@@ -48,7 +48,6 @@ CREATE TABLE room (
 	r_name VARCHAR2(100) NOT NULL, 		
 	r_price NUMBER(10) NOT NULL, 
 	r_service VARCHAR2(100) NOT NULL, 
-	h_id NUMBER(4) NOT NULL 
 );
 
 CREATE UNIQUE INDEX PK_room
@@ -129,17 +128,6 @@ ALTER TABLE member
 			m_id
 		);
 
-ALTER TABLE room
-	ADD
-		CONSTRAINT FK_hotel_TO_room
-		FOREIGN KEY (
-			h_id
-		)
-		REFERENCES hotel (
-			h_id
-		)
-		ON DELETE CASCADE;
-
 ALTER TABLE booking
 	ADD
 		CONSTRAINT FK_room_TO_booking
@@ -196,8 +184,8 @@ alter table reply add( re_id number(4));
 alter table room add(r_cheap varchar2(10));
 alter table room drop column h_id;
 //더미데이터떄문에 20부터시작
-create sequence hotel_seq start with 20 increment by 1;
-create sequence room_seq start with 20 increment by 1;
+create sequence hotel_seq start with 21 increment by 1;
+create sequence room_seq start with 21 increment by 1;
 create sequence member_seq;
 create sequence reply_seq;
 

@@ -10,10 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(hotel_seq.nextval,#{h_name},#{h_adress},#{h_image},0,#{h_content})
 	</insert>
 	<insert id="roomAdd">
-		insert into
-		hobby(hobby_idx,name,title,content,gender,hobby,img_file_name)
-		values(hobby_seq.nextval, #{name}, #{title},#{content},#{gender},
-		#{hobby}, #{img_file_name} )
+		insert into room
+		values(room_seq.nextval,#{h_name},#{r_name},#{r_price},#{r_service},#{r_inwon},#{r_cheap})
 	</insert>
 
 </mapper>

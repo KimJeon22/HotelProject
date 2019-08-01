@@ -36,16 +36,16 @@ div {
 					"<br>"
 					+ "객실 "+a+":"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='r_name"+a+"' class='form-control' placeholder='객실 이름 입력'>"
+					+ "<input type='text' name='rl_name["+(a-1)+"]' class='form-control' placeholder='객실 이름 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='r_price"+a+"' class='form-control' placeholder='객실 가격 입력'>"
+					+ "<input type='text' name='rl_price["+(a-1)+"]' class='form-control' placeholder='객실 가격 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='r_service"+a+"' class='form-control' placeholder='객실 서비스 입력'>"
+					+ "<input type='text' name='rl_service["+(a-1)+"]' class='form-control' placeholder='객실 서비스 입력'>"
 					+ "</div>"
 					+ "<div class='form-group'>"
-					+ "<input type='text' name='r_inwon"+a+"' class='form-control' placeholder='객실 최대 인원 입력'>"
+					+ "<input type='text' name='rl_inwon["+(a-1)+"]' class='form-control' placeholder='객실 최대 인원 입력'>"
 					+ "</div>");
 			} else {window.alert("객실은 최대 4개만 가능");}
 			a++;
@@ -75,19 +75,19 @@ div {
 			</div>
 			객실 1:
 			<div class="form-group">
-				<input type="text" name="r_name1" class="form-control"
+				<input type="text" name="rl_name[0]" class="form-control"
 					placeholder="객실 이름 입력">
 			</div>
 			<div class="form-group">
-				<input type="text" name="r_price1" class="form-control"
+				<input type="text" name="rl_price[0]" class="form-control"
 					placeholder="객실 가격 입력">
 			</div>
 			<div class="form-group">
-				<input type="text" name="r_service1" class="form-control"
+				<input type="text" name="rl_service[0]" class="form-control"
 					placeholder="객실 서비스 입력">
 			</div>
 			<div class="form-group asd">
-				<input type="text" name="r_inwon1" class="form-control"
+				<input type="text" name="rl_inwon[0]" class="form-control"
 					placeholder="객실 최대 인원 입력">
 			</div>
 
