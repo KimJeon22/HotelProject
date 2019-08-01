@@ -82,7 +82,7 @@ $(document).ready(function(){
 
 	<!-- nav 화면 -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
+	  <a class="navbar-brand" href="Mainpage.jsp">Navbar</a>
  	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -150,8 +150,10 @@ $(document).ready(function(){
 				<div class="cars-horizon">
 				    <div class="container">
 				        <div class="row">
+				        
 				            <div class="col-md-9">
 				             <c:forEach var="dtoss" items="${HG}"> 
+
 				                <div class="row border">
 				                 
 				                    <div class="col-md-4 car-image-block">
@@ -163,13 +165,15 @@ $(document).ready(function(){
 				                        <ul class="list-inline">
 				                             <li class="list-inline-item"><h4>1인 - 최대 x인</h4></li><br><br>				                     
 				                             <li class="list-inline-item"><h5>1박당 가격</h5></li><br><br>
-				                             <li class="list-inline-item"><h3>최저가: </h3></li>
+				                             <li class="list-inline-item"><h3>최저가: ${dtoss.r_price} </h3></li>
 				                        </ul>
-				                        <a href="Mainpage.jsp"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
+				                        <a href="Detail.do?Gidx=${dtoss.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
 				                     </div>   
 				                </div> 
-				                   </c:forEach>           				                          
+				                    
+				                 </c:forEach>          				                          
 				            </div>
+				           
 				        </div>        
 				    </div>
 				</div>
