@@ -1,0 +1,61 @@
+﻿INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('A호텔','서울특별시',1,1, 'hotel1.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('B호텔','서울특별시',2,5,'hotel2.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('C호텔','남양주시',3,3,'hotel3.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('D호텔','안성시',4,3,'hotel4.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('E호텔','천안시',5,5,'hotel5.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('F호텔','천안시',6,3,'hotel6.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('G호텔','서울특별시',7,5,'hotel7.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('H호텔','부산광역시',8,3,'hotel8.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('I호텔','부산광역시',9,1,'hotel9.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('J호텔','인천광역시',10,3,'hotel10.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('K호텔','서울특별시',11,1,'hotel11.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('L호텔','서울특별시',12,4,'hotel12.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('M호텔','의정부시',13,5,'hotel13.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('N호텔','춘천시',14,1,'hotel14.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('O호텔','서울특별시',15,3,'hotel15.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('P호텔','대구광역시',16,1,'hotel16.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('Q호텔','대구광역시',17,3,'hotel17.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('R호텔','대전시',18,2,'hotel18.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('S호텔','인천광역시',19,3,'hotel19.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('T호텔','광주광역시',20,4,'hotel20.jpg');
+
+
+Room
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE,) VALUES (1,'Sroom'	,50000		,4,'A호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE) VALUES (2,'Mroom'	,100000		,6,'A호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE) VALUES (3,'Lroom'	,150000		,12,'A호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE) VALUES (4,'Sroom'	,60000		,4,'B호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE) VALUES (5,'Mroom'	,95000		,6,'B호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, R_SERVICE) VALUES (6,'Lroom'	,130000		,12,'B호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (7,'Lroom'	,200000		,12,'C호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (8,'Mroom'	,88000		,6,'D호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (9,'Lroom'	,230000		,12,'D호텔','d',4,'a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (10,'Sroom'	,55000		,4,'E호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (11,'Sroom'	,40000		,4,'E호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (12,'Sroom'	,65000		,4,'F호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (13,'Mroom'	,90000		,6,'F호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (14,'Lroom'	,130000		,12,'G호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (15,'Lroom'	,150000,	12,'G호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (16,'Lroom'	,180000,	12,'G호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (17,'Sroom'	,50000,		4,'H호텔','c','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (18,'Mroom'	,80000,		6,'H호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (19,'Sroom'	,60000,		4,'I호텔','d','a');
+INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES (20,'Sroom'	,55000,		4,'I호텔','c','a');
+
+
+col h_name for a20
+col h_adress for a20
+col h_id for a10
+col h_rate for a5
+col h_image for a20
+col h_content for a30
+set linesize 2500
+
+
+
+select *
+from (	select rownum rn, r_price,h_id,h_name,h_adress,h_image,h_rate
+	from (select h.h_name as name, r.r_price from room r,hotel h where h.h_name = r.h_name and r.r_cheap='c') r right join  (select h.* from hotel h) h
+	on h.h_name = r.name
+	where h_adress like '%인천%')
+where rn between 1 and 5;
