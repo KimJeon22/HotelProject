@@ -31,11 +31,6 @@ public class MainDAO {
 		  return hlist;
 	  }
 	  
-	/*
-	 * public MainDTO dbRprice(int rid) { MainDTO rprice = (MainDTO)
-	 * temp.selectOne("tour.rprice", rid);
-	 * System.out.println("dao¿¡ dbTselect ÇÔ¼ö="+rprice.getR_id()); return rprice; }
-	 */
-	 
+	
 	
 }
