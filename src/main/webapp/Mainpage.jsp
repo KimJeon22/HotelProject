@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,21 +125,8 @@ h3{
 </head>
 <body>
 
-<!-- nav 화면 -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
- 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="Mainpage.jsp">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
+<!--  Header -->
+   <c:import url="/header.do"></c:import>
 
 <!-- 검색옵션 -->
 <div class="content" >
@@ -169,9 +158,7 @@ h3{
 						<div class="text">
 							<span>전세계 269만개의 호텔을 한번에 비교하여 마음에 쏙 드는 호텔을 예약하세요</span>
 						</div>
-                        
-						<a href="#">Learn More</a>
-                        
+                                               
 					 </div>
 				</div>	 
 				
@@ -189,9 +176,7 @@ h3{
 							<span>예약수수료가 없습니다.<br>
 							호텔스컴바인이 고객님들께 드리는 약속입니다.</span>
 						</div>
-                        
-						<a href="#">Learn More</a>
-                        
+                        					                       
 					 </div>
 				</div>	 
 				
@@ -209,26 +194,35 @@ h3{
 							<span>작년 4억명에 여행자가 호텔스컴바인에서  <br> 최고의 호텔상품을 검색했습니다.</span>
 						</div>
                         
-						<a href="#">Learn More</a>
-                        
 					 </div>
 				</div>		
 		</div>		
     </div>
 </div>
 
-<br>
+
 
 <!-- 광고창  -->
- <div>
-  <img src="">
-  <img src="">
-  <img src="">
- </div>
-
+      <div class="container">
+        <hr>
+          <div class="row">
+             <div class="hc-promopanel">
+                    <a class="hc-promopanel__tile" href="http://naver.me/5DPwcCuQ" target="_blank" data-track="promoCarousel--0">
+                        <img title="" alt="" src="https://cdn.datahc.com/content/images/desktop/main/promo-banners/kr-1.jpg?cdn=1.0.2019.212001-Cdbc2248f7aa2d3b92c842981c1bf36c8c6b6edb6">
+                    </a>
+                    <a class="hc-promopanel__tile" href="http://naver.me/GorsFu3S" target="_blank" data-track="promoCarousel--1">
+                        <img title="" alt="" src="https://cdn.datahc.com/content/images/desktop/main/promo-banners/kr-2.jpg?cdn=1.0.2019.212001-Cdbc2248f7aa2d3b92c842981c1bf36c8c6b6edb6">
+                    </a>
+                    <a class="hc-promopanel__tile" href="http://www.discoverhongkong.com/kr/plan-your-trip/latest-promotion/special-kids-offer.jsp" target="_blank" data-track="promoCarousel--2">
+                        <img title="" alt="" src="https://cdn.datahc.com/content/images/desktop/main/promo-banners/kr-3.jpg?cdn=1.0.2019.212001-Cdbc2248f7aa2d3b92c842981c1bf36c8c6b6edb6">
+                    </a>
+             </div>
+           </div>
+   </div>
+  <br>
 <!-- 인기여행지 이미지나열 -->
   <div class="container">
-
+    <hr>
   <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">인기여행지</h1>
 
   <hr class="mt-2 mb-5">
