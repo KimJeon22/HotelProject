@@ -96,7 +96,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		BoardDTO dtos = dao.dbDetail(data);
 		mav.addObject("LG", dtos);
-		mav.setViewName("WEB-INF/views/HotelDetail.jsp");
+		mav.setViewName("detail.jsp");
 		return mav;
 	}
 }
