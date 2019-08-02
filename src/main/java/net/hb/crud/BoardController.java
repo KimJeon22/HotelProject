@@ -23,7 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.hb.booking.BoardDAO1;
 import net.hb.booking.RoomDTO;
 
 /**
@@ -38,7 +37,6 @@ public class BoardController {
 	@Autowired
 	@Inject
 	BoardDAO dao;
-	BoardDAO1 dao1;
 	int pageCount = 5;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -112,7 +110,7 @@ public class BoardController {
 			if(i>=1) {fileName +="/" + files.get(i).getOriginalFilename();}
 		}
 		hdto.setH_image(fileName);
-		dao1.boardInsert(hdto, rdto);
+		dao.dbInsert(hdto, rdto);
 		
 		return "index.jsp";
 	}
