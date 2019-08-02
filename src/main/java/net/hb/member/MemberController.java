@@ -21,18 +21,27 @@ public class MemberController {
 	public String board_insert(MemberDTO dto) {
 		dao.dbInsert(dto);
 		
-		return "redirect:login.do";
+		//return "redirect:/Mainpage.jsp";
+		return "WEB-INF/views/list.jsp";
+		//mav.setViewName("WEB-INF/views/list.jsp");
+	}
+	
+	@RequestMapping("/header.do")
+	public String header(MemberDTO dto) {
+		
+		return "WEB-INF/views/header.jsp";
 	}
 	
 	@RequestMapping("login.do")
 	public String login() {
-		return "WEB-INF/views/login.jsp";
+		return "redirect:/Mainpage.jsp";
 	}
 	
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "WEB-INF/views/loginCheck.jsp";
+		System.out.println("로그아웃");
+		return "WEB-INF/views/list.jsp";
 	}
 	
 	@RequestMapping("loginCheck.do")
@@ -42,18 +51,17 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		int result=0;
 		result=dao.loginCheck(dto);
+	
 		
 		if(result == 1) { //없는 id
 			mav.setViewName("WEB-INF/views/login.jsp");
-			mav.addObject("msg","id");
 		} else if(result == 2) { //password 틀림
 			mav.setViewName("WEB-INF/views/login.jsp");
-			mav.addObject("msg","pwd");
 		} else if(result == 3) { //로그인 성공
 			session.setAttribute("m_id", dto.getM_id());
-			mav.setViewName("WEB-INF/views/loginCheck.jsp");
+			System.out.println("로그인성공");
+			mav.setViewName("WEB-INF/views/list.jsp");
 		}
-			
 		return mav;
 	}
 	
