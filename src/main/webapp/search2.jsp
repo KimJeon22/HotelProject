@@ -81,7 +81,7 @@ input{
 <body>
 
 <div class="search" >
-  <form action="search.do">
+  <form method="get" action="list.do">
 <!--     <label for="country">지 역</label>
     <select id="country" name="country">
       <option value="australia">Australia</option>
@@ -91,7 +91,11 @@ input{
       <option value="usa">Canada</option>
     </select>
      -->
-  
+    <div>
+    <label for="country">지 역 </label><br>
+    <input id="country" type="text" name="h_adress">
+   
+    </div>
     <label for="checkin">체크인</label>
     <input id="date" type="date" >
 

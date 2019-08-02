@@ -50,6 +50,11 @@
 
 label{
   color: white;
+  font-size: medium;
+}
+
+#submit{
+ font-size: medium;
 }
 
 </style>
