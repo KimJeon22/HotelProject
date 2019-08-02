@@ -49,6 +49,14 @@ col h_id for 99
 col h_rate for 99
 col h_image for a20
 col h_content for a30
+
+col r_id for 99
+col r_name for a10
+col r_price for 999999
+col r_service for a30
+col r_inwon for 99
+col r_cheap for a3
+
 set linesize 2500
 
 
