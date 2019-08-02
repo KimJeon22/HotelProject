@@ -157,8 +157,7 @@ h3{
                         
 						<div class="text">
 							<span>전세계 269만개의 호텔을 한번에 비교하여 마음에 쏙 드는 호텔을 예약하세요</span>
-						</div>
-                                               
+						</div>             
 					 </div>
 				</div>	 
 				
@@ -199,8 +198,6 @@ h3{
 		</div>		
     </div>
 </div>
-
-
 
 <!-- 광고창  -->
       <div class="container">

@@ -56,47 +56,16 @@
  button{
    width: 50%; 
  }
+ 
 </style>
 
-<script>
-
-function msg(){
-	var str = ${LG.t_place};
-	alert(str);		
- }
- window.onload(msg);
- $(document).ready(function() {alert(str);})
-	
-
-/* $(document).ready(function(){
-	alert("함수실행");
-	var str = ${LG.t_place};
-	document.write(str);
-	var strArray[] = str.split('/');
-	alert(strArray[0] + strArray[1] + strArray[2] + strArray[3] + "alert실행");  
-}); */
-
-</script>
 </head>
 
-<body onload="msg();">
-<!--  <div align="center"><h2>header</h2> </div> -->
+<body >
 
-	<!-- nav 화면 -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="Mainpage.jsp">Navbar</a>
- 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="Mainpage.jsp">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
+<!--  Header -->
+   <c:import url="/header.do"></c:import>
+   
 <!-- 1번째 섹션 -->
 <div class="container-fluid">
     <section class="container">
@@ -107,8 +76,8 @@ function msg(){
 			</div>
 		
 			<div class="col-md-6">
-			 <h3 class="dark-grey"><b>검색한 지역 [ ${LG.t_area} ]</b></h3><br><br><br>
-				<img src="resources/tour_image/${LG.t_image}" width="600" height="380">		
+			 <h3 class="dark-grey"><b>검색한 지역 [ ${LG.t_area} ]</b></h3><p>
+				<img src="resources/tour_image/${LG.t_image}" width="600" height="470">	
 			</div>
 		</div>
 	</section>
@@ -120,7 +89,7 @@ function msg(){
 		<div class="container-page">
 		
 		   <div class="col-md-6">
-				<h2>지도</h2><br>											
+				<h2>지도</h2><br>										
 			</div>
 						
 			<div class="col-md-6">				 
