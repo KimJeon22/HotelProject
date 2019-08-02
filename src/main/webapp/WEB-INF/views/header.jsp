@@ -7,13 +7,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style type="text/css">
+.dropdown{
+	margin-left: 1300px;
+	z-index: 3;
+}
+.bg-color{
+ background: rgb(76, 80, 87);
+ color:white;
+}
+a:link { color: white; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: white; text-decoration: underline;}
+
+</style>
 </head>
 <body>
 	
 	
 	<!-- nav 화면 -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg bg-color">
 		<a class="navbar-brand" href="Mainpage.jsp">호텔프로젝트</a>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
@@ -24,10 +37,16 @@
 				</c:if>
 				<c:if test='${sessionScope.m_id ne null}'>
 					<a class="nav-item nav-link active" href="Mainpage.jsp">Home </a>
-					<a class="nav-item nav-link" href="logout.do">로그아웃</a>
-					<a class="nav-item nav-link login" href="#">마이페이지</a>
 					<a class="nav-item nav-link login" data-toggle="modal" data-target="#exampleModalCenter" href="#">호텔추가</a>
-					<a class="nav-item nav-link">${sessionScope.m_id }님</a>
+ 					<li class="nav-item dropdown form-inline my-2 my-lg-0">
+       					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${sessionScope.m_id }님 </a>
+       						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          						<a class="dropdown-item" href="#">예약확인</a>
+          						<a class="dropdown-item" href="#">마이페이지</a>
+          						<div class="dropdown-divider"></div>
+          						<a class="dropdown-item"  href="logout.do">로그아웃</a>
+        					</div>
+     				 </li>
 				</c:if>
 			</div>
 		</div>

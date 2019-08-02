@@ -21,9 +21,7 @@ public class MemberController {
 	public String board_insert(MemberDTO dto) {
 		dao.dbInsert(dto);
 		
-		//return "redirect:/Mainpage.jsp";
-		return "WEB-INF/views/list.jsp";
-		//mav.setViewName("WEB-INF/views/list.jsp");
+		return "redirect:/Mainpage.jsp";
 	}
 	
 	@RequestMapping("/header.do")
@@ -41,7 +39,7 @@ public class MemberController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		System.out.println("로그아웃");
-		return "WEB-INF/views/list.jsp";
+		return "/Mainpage.jsp";
 	}
 	
 	@RequestMapping("loginCheck.do")
@@ -60,7 +58,7 @@ public class MemberController {
 		} else if(result == 3) { //로그인 성공
 			session.setAttribute("m_id", dto.getM_id());
 			System.out.println("로그인성공");
-			mav.setViewName("WEB-INF/views/list.jsp");
+			mav.setViewName("/Mainpage.jsp");
 		}
 		return mav;
 	}
