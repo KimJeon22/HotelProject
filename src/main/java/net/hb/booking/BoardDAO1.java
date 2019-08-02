@@ -1,6 +1,5 @@
 package net.hb.booking;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -8,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+
+import net.hb.crud.BoardDTO;
 
 @Repository
 @Component
@@ -17,10 +18,10 @@ public class BoardDAO1 {
 	@Autowired
 	SqlSessionTemplate temp;
 
-	public void boardInsert(HotelDTO hdto, RoomDTO rdto) {
+	public void boardInsert(BoardDTO hdto, RoomDTO rdto) {
 		SelectSort sort = new SelectSort();
 		
-		temp.insert("board1.hotelAdd", hdto);
+		temp.insert("board.hotelAdd", hdto);
 
 		rdto = sort.SelectSort(rdto);
 
@@ -32,7 +33,7 @@ public class BoardDAO1 {
 				rdto.setR_price(rdto.getRl_price().get(i));
 				rdto.setR_name(rdto.getRl_name().get(i));
 				rdto.setR_service(rdto.getRl_service().get(i));
-				temp.insert("board1.roomAdd",rdto);
+				temp.insert("room.roomAdd",rdto);
 			} else {
 				rdto.setH_name(hdto.getH_name());
 				rdto.setR_cheap("d");
@@ -40,7 +41,7 @@ public class BoardDAO1 {
 				rdto.setR_price(rdto.getRl_price().get(i));
 				rdto.setR_name(rdto.getRl_name().get(i));
 				rdto.setR_service(rdto.getRl_service().get(i));
-				temp.insert("board1.roomAdd",rdto);
+				temp.insert("room.roomAdd",rdto);
 			}
 		}
 

@@ -1,6 +1,8 @@
 package net.hb.crud;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,16 +10,21 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
+import net.hb.booking.BoardDAO1;
+import net.hb.booking.RoomDTO;
 
 /**
  * Handles requests for the application home page.
@@ -31,6 +38,7 @@ public class BoardController {
 	@Autowired
 	@Inject
 	BoardDAO dao;
+	BoardDAO1 dao1;
 	int pageCount = 5;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -90,12 +98,30 @@ public class BoardController {
 		return ldto;
 	}
 	
+	@RequestMapping(value="/boardInsert.do" , method = RequestMethod.POST)
+	public String board_Insert(MultipartHttpServletRequest multipartHttpServletRequest, BoardDTO hdto, RoomDTO rdto)
+			throws IOException {
+		String path = application.getRealPath("/resources/upload/");
+		List<MultipartFile> files = multipartHttpServletRequest.getFiles("files");
+		File file = new File(path);
+		String fileName = files.get(0).getOriginalFilename();
+		
+		for (int i = 0; i < files.size(); i++) {
+			file = new File(path + files.get(i).getOriginalFilename());
+			files.get(i).transferTo(file);
+			if(i>=1) {fileName +="/" + files.get(i).getOriginalFilename();}
+		}
+		hdto.setH_image(fileName);
+		dao1.boardInsert(hdto, rdto);
+		
+		return "index.jsp";
+	}
 	
-	@RequestMapping("/Detail.do")
-	public ModelAndView board_detail(BoardDTO dto, @RequestParam("Gidx") int data) {
+	@RequestMapping("/detail.do")
+	public ModelAndView board_detail(@RequestParam("Gidx") int data,BoardDTO bdto,RoomDTO rdto) {
 		ModelAndView mav = new ModelAndView();
-		BoardDTO dtos = dao.dbDetail(data);
-		mav.addObject("LG", dtos);
+		bdto = dao.dbDetail(data);
+		mav.addObject("LG", bdto);
 		mav.setViewName("detail.jsp");
 		return mav;
 	}
