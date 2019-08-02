@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -116,10 +117,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/detail.do")
-	public ModelAndView board_detail(@RequestParam("Gidx") int data,BoardDTO bdto,RoomDTO rdto) {
+	public ModelAndView board_detail(@RequestParam("Gidx") int data,BoardDTO bdto) {
 		ModelAndView mav = new ModelAndView();
+		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
 		bdto = dao.dbDetail(data);
-		mav.addObject("LG", bdto);
+		System.out.println(bdto.getH_name());
+		list = dao.dbRoomSelect(bdto.getH_name());
+		mav.addObject("bdto", bdto);
+		mav.addObject("rdto", list);
 		mav.setViewName("detail.jsp");
 		return mav;
 	}

@@ -48,6 +48,11 @@ public class BoardDAO {
 		BoardDTO list = temp.selectOne("board.detail", data);
 		return list;
 	}
+	
+	public List<RoomDTO> dbRoomSelect(String h_name) {
+		List<RoomDTO> list= temp.selectList("room.roomSelect", h_name);
+		return list;
+	}
 
 	public void dbInsert(BoardDTO hdto, RoomDTO rdto) {
 		SelectSort sort = new SelectSort();

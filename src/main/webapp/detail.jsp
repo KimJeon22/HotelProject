@@ -174,46 +174,49 @@ label, #col-8 {
 <body>
 
 	<div class="container">
-		<h1>${LG.h_name}</h1>
+		<h1>${bdto.h_name}</h1>
 		<div>
 			<div class="row">
 				<div class="col-8">
 					<img
-						src="${pageContext.request.contextPath}/resources/hotel_image/${LG.h_image}"
+						src="${pageContext.request.contextPath}/resources/hotel_image/${bdto.h_image}"
 						width="100%" height="200">
 				</div>
 				<div class="col-4">
 					<div>
 						<label>주소:</label>
-						<p>${LG.h_adress}</p>
+						<p>${bdto.h_adress}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div>
 			<div>
-				<div>${LG.h_content}</div>
-				<div>부대시설~</div>
+				<div>내용:${bdto.h_content}</div>
 			</div>
-			<div class="row">
-				<div class="col row">
-					<c:forEach var="dto" items="${LG}">
-						<div class="col-2">
-							<label>객실인원</label>
-						</div>
-						<div class="col-8">
-							<label>객실 서비스 정보</label>
-						</div>
-						<div class="col-2">
-							<input type="submit" class="btn btn-primary" value="예약하기">
-						</div>
-					</c:forEach>
-				</div>
-				<div class="col">
+			<div>
+				<c:forEach var="dto" items="${rdto}">
 					<div>
-						<a href="#">예약하기</a>
+						<div class="row">
+							<div class="col-2">
+								<label>객실인원</label>
+								<p>${dto.r_inwon}</p>
+							</div>
+							<div class="col-6">
+								<label>객실 서비스 정보</label>
+								<p>${dto.r_service}</p>
+							</div>
+							<div class="col-2">
+								<label>가격</label>
+								<p>${dto.r_price}</p>
+							</div>
+
+							<div class="col-2">
+								<a href="#" class="btn btn-primary">예약하기</a>
+							</div>
+						</div>
 					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>

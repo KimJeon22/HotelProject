@@ -45,8 +45,8 @@ INSERT INTO room (r_id,r_name,r_price,r_inwon,h_name, r_cheap, r_service) VALUES
 
 col h_name for a20
 col h_adress for a20
-col h_id for a10
-col h_rate for a5
+col h_id for 99
+col h_rate for 99
 col h_image for a20
 col h_content for a30
 set linesize 2500

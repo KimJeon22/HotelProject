@@ -9,5 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into room
 		values(room_seq.nextval,#{h_name},#{r_name},#{r_price},#{r_service},#{r_inwon},#{r_cheap})
 	</insert>
+	
+	<select id="roomSelect" resultType="net.hb.booking.RoomDTO">
+		select * from room where h_name = #{h_name}
+	</select>
 
 </mapper>
