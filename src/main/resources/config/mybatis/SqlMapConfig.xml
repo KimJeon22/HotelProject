@@ -12,7 +12,7 @@
 	<mappers>
 			
 		<mapper resource="config/mybatis/board.xml"/>
-		<mapper resource="config/mybatis/board2.xml"/>
+		<mapper resource="config/mybatis/room.xml"/>
 		<mapper resource="config/mybatis/member.xml"/>
 		<mapper resource="config/mybatis/main.xml"/>
 		

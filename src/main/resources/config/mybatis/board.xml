@@ -46,8 +46,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from hotel
 	</select>
 	
+	<insert id="hotelAdd">
+		insert into hotel
+		values(hotel_seq.nextval,#{h_name},#{h_adress},#{h_image},0,#{h_content})
+	</insert>
 	
 	
+	
+	
+	
+	
+	
+	<!-- 참고코드 -->
 	<insert id="add">
 		insert into hobby(hobby_idx,name,title,content,gender,hobby,img_file_name)
 		values(hobby_seq.nextval, #{name}, #{title},#{content},#{gender},

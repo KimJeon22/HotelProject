@@ -164,7 +164,7 @@
 											<label class="card-title" >최저가 ${dto.r_price}원</label> <br>
 										</c:when>
 									</c:choose>
-								<a href="booking.jsp"><input type="button" class="btn btn-success" value="예약하기"></a>
+								<a href="detail.do?Gidx=${dto.h_id }"><input type="button" class="btn btn-success" value="예약하기"></a>
       						</div>
     					</div>
   					</div>
@@ -265,7 +265,7 @@
 						+"<p class='card-text'>주소<br>"+data[i].h_adress+"</p><p class='card-text'>1인 ~ 최대 x인</p>"
 						+"<div class='text-right'> <span style='font-size:small;'>"+${day}+"박당가격</span><br>"
 						+price_append
-						+"<a href='booking.jsp'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
+						+"<a href='detail.do?Gidx="+data[i].h_id+"'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"
 		   				);
 		    	rate_append="";
 		    	
