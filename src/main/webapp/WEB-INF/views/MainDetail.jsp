@@ -27,7 +27,7 @@
  }
    
  td{
-  font-size:20px; 
+  font-size:30px;   
  }
  
  table{
@@ -103,11 +103,11 @@ function msg(){
 		<div class="container-page">				
 			<div class="col-md-6">
 				<h3 class="dark-grey">Registration</h3>
-				<jsp:include page="search2.jsp"></jsp:include>			
+				<jsp:include page="search.jsp"></jsp:include>			
 			</div>
 		
 			<div class="col-md-6">
-			 <h3 class="dark-grey"><b>검색한 지역 [ ${LG.t_area} ]</b></h3>
+			 <h3 class="dark-grey"><b>검색한 지역 [ ${LG.t_area} ]</b></h3><br><br><br>
 				<img src="resources/tour_image/${LG.t_image}" width="600" height="380">		
 			</div>
 		</div>
@@ -126,17 +126,13 @@ function msg(){
 			<div class="col-md-6">				 
 				<h2>관광명소</h2><br>				
 			    <table>
-			    <tr>			   
-			      <td>속초</td>
-			      <td>강릉</td>
-			    </tr> 	
+			    <tr>			    	   
+			      <td>${A}</td>
+			      <td>${B}</td>				
+			    </tr> 
 			    <tr>
-			      <td>포항</td>
-			      <td>울산</td>
-			    </tr>
-			     <tr>
-			      <td>포항</td>
-			      <td>울산</td>
+			      <td>${C}</td>
+			      <td>${D}</td>
 			    </tr>			 
 			    </table>
 			    <hr>

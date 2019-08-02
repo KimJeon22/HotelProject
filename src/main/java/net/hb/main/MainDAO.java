@@ -18,7 +18,7 @@ public class MainDAO {
 	 	
 	  public MainDTO dbTselect(String timg) {
 	      MainDTO list = (MainDTO) temp.selectOne("tour.search", timg);
-	       System.out.println("tourdao단 첫번째 완료");	
+	       //System.out.println("tourdao단 첫번째 완료");	
 	       //System.out.println("dao에 dbTselect 함수="+list.getT_area());
 		   //System.out.println("dao에 dbTselect 함수="+list.getT_image());
 		   //System.out.println("dao에 dbTselect 함수="+list.getT_place());
@@ -28,7 +28,7 @@ public class MainDAO {
 	
 	  public List<MainDTO> dbHselect(){ 
 		  List<MainDTO> hlist =  temp.selectList("tour.hotellist"); 
-	      System.out.println("hoteldao단 두번째 완료");
+	      //System.out.println("hoteldao단 두번째 완료");
 	  return hlist;
 	  }
 

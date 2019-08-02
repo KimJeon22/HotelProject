@@ -43,14 +43,31 @@ public class MainController {
 	 * return "WEB-INF/views/hotelList.do"; }
 	 */
 	
+	
 	 
 	
 	  @RequestMapping("/tourSearch.do") 
 	  public ModelAndView toursearch(MainDTO dto, @RequestParam("timg") String timg ) {
-		  System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
+		  //관광지 스플릿변수설정
+			  String A = null;
+			  String B = null;
+			  String C = null;
+			  String D = null;
+		  //System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
 		  ModelAndView mav = new ModelAndView(); 
+		  
 		  //관광지정보
 		  MainDTO dtos = dao.dbTselect(timg); 
+			  String str = dtos.t_place;
+			  //System.out.println("str="+ str);
+			  String strA[] = str.split("/");
+			  for(int i=0; i<strA.length; i++) {
+				  //System.out.println("관광지스플릿="+strA[i]);
+				   A = strA[0];
+				   B = strA[1];
+				   C = strA[2];
+				   D = strA[3];			  
+			  }		  
 		  //호텔정보&룸가격 
 		  List<MainDTO> dt = dao.dbHselect();
 		/*
@@ -60,8 +77,12 @@ public class MainController {
 		 */
 		  mav.addObject("LG",dtos); 
 		  mav.addObject("HG", dt);
+		  mav.addObject("A", A); //관광지정보
+		  mav.addObject("B", B); //관광지정보
+		  mav.addObject("C", C); //관광지정보
+		  mav.addObject("D", D); //관광지정보
 				  
-		  System.out.println("컨트롤러 완료");
+		  //System.out.println("컨트롤러 완료");
 		  mav.setViewName("WEB-INF/views/MainDetail.jsp"); 	  
 	  return mav; }
 	 
