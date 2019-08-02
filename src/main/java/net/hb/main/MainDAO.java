@@ -25,11 +25,13 @@ public class MainDAO {
 	    return list; 
 	  }
 	  
-	  public List<MainDTO> dbHselect(){
-		  List<MainDTO> hlist = temp.selectList("tour.hsearch");
-		  System.out.println("hoteldao단 두번째 완료");
-		  return hlist;
+	
+	  public List<MainDTO> dbHselect(){ 
+		  List<MainDTO> hlist =  temp.selectList("tour.hotellist"); 
+	      System.out.println("hoteldao단 두번째 완료");
+	  return hlist;
 	  }
+
 	  
 	
 	

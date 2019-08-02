@@ -52,15 +52,14 @@ public class MainController {
 		  //관광지정보
 		  MainDTO dtos = dao.dbTselect(timg); 
 		  //호텔정보&룸가격 
-		  List<MainDTO> dtoss = dao.dbHselect();
+		  List<MainDTO> dt = dao.dbHselect();
 		/*
 		 * for(int i=0; i<dtoss.size(); i++) { MainDTO dt = new MainDTO();
 		 * //System.out.println("컨트롤러에서 나온호텔이름=" + dtoss.get(i).getH_name()); String
 		 * hname = dtoss.get(i).getH_name(); }
 		 */
-		  System.out.println(dto.getH_name());
 		  mav.addObject("LG",dtos); 
-		  mav.addObject("HG", dtoss);
+		  mav.addObject("HG", dt);
 				  
 		  System.out.println("컨트롤러 완료");
 		  mav.setViewName("WEB-INF/views/MainDetail.jsp"); 	  

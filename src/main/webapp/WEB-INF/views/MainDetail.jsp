@@ -60,24 +60,26 @@
 
 <script>
 
+function msg(){
+	var str = ${LG.t_place};
+	alert(str);		
+ }
+ window.onload(msg);
+ $(document).ready(function() {alert(str);})
 	
-$(document).ready(function() {
-	   alert('test');
-	});
 
-
-$(document).ready(function(){
+/* $(document).ready(function(){
 	alert("함수실행");
 	var str = ${LG.t_place};
 	document.write(str);
 	var strArray[] = str.split('/');
 	alert(strArray[0] + strArray[1] + strArray[2] + strArray[3] + "alert실행");  
-});
+}); */
 
 </script>
-
 </head>
-<body>
+
+<body onload="msg();">
 <!--  <div align="center"><h2>header</h2> </div> -->
 
 	<!-- nav 화면 -->
@@ -118,8 +120,7 @@ $(document).ready(function(){
 		<div class="container-page">
 		
 		   <div class="col-md-6">
-				<h2>지도</h2><br>
-											
+				<h2>지도</h2><br>											
 			</div>
 						
 			<div class="col-md-6">				 
@@ -150,34 +151,29 @@ $(document).ready(function(){
 				<div class="cars-horizon">
 				    <div class="container">
 				        <div class="row">
-				        
-				            <div class="col-md-9">
-				             <c:forEach var="dtoss" items="${HG}"> 
-
-				                <div class="row border">
-				                 
+				          <div class="col-md-9">				           
+				              <c:forEach var="dt" items="${HG}" begin="0" end="8"> 
+				                <div class="row border">				                 
 				                    <div class="col-md-4 car-image-block">
-				                        <a href="#"><img src="https://gaadicdn.com/usedcar_image/320x240/VCC_848014_1_1522323829348_4_648905_24_1522324193.jpg "></a>
+				                        <a href="#"><img src="${pageContext.request.contextPath}/resources/hotel_image/${dt.h_image}"></a>
 				                    </div>
 				                    <div class="col-md-8 card-body ">				        
-				                        <a href="#"><span><h3>${dtoss.h_name}</h3></span></a><p></p>				                        
-				                         <sapn><h4>주소: ${dtoss.h_adress}</h4></sapn>
+				                        <a href="#"><span><h3>${dt.h_name}</h3></span></a><p></p>				                        
+				                         <sapn><h4>주소:${dt.h_adress}</h4></sapn>
 				                        <ul class="list-inline">
 				                             <li class="list-inline-item"><h4>1인 - 최대 x인</h4></li><br><br>				                     
 				                             <li class="list-inline-item"><h5>1박당 가격</h5></li><br><br>
-				                             <li class="list-inline-item"><h3>최저가: ${dtoss.r_price} </h3></li>
+				                             <li class="list-inline-item"><h3>최저가:${dt.r_price} </h3></li>
 				                        </ul>
-				                        <a href="Detail.do?Gidx=${dtoss.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
+				                        <a href="Detail.do?Gidx=${dt.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
 				                     </div>   
-				                </div> 
-				                    
-				                 </c:forEach>          				                          
+				                    </div>            
+				                 </c:forEach>				                        				                          
 				            </div>
 				           
 				        </div>        
 				    </div>
-				</div>
-				
+				</div>				
 			</div>			
 		</div>
 	</section>
