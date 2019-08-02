@@ -17,6 +17,18 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<!-- Daum Map API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2233c89c1a9b498cab20c04239e70ef7"></script>
+
+<script type="text/javascript">
+	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+		level: 3 //지도의 레벨(확대, 축소 정도)
+	};
+	
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+</script>
 
 <style>
  h2{
@@ -89,9 +101,17 @@
 		<div class="container-page">
 		
 		   <div class="col-md-6">
-				<h2>지도</h2><br>										
-			</div>
-						
+				<h2>지도</h2><br>
+		     <div id="map" style="width:520px;height:300px;"></div>
+				<script>
+					var container = document.getElementById('map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};			
+					var map = new kakao.maps.Map(container, options);
+	            </script>										
+			</div>	
 			<div class="col-md-6">				 
 				<h2>관광명소</h2><br>				
 			    <table>
@@ -102,7 +122,7 @@
 			    <tr>
 			      <td>${C}</td>
 			      <td>${D}</td>
-			    </tr>			 
+			    </tr>		 
 			    </table>
 			    <hr>
 			    <tr ><td><font size="4"><b>${LG.t_content}</b></font></td></tr>
@@ -130,12 +150,11 @@
 				                             <li class="list-inline-item"><h5>1박당 가격</h5></li><br><br>
 				                             <li class="list-inline-item"><h3>최저가:${dt.r_price} </h3></li>
 				                        </ul>
-				                        <a href="Detail.do?Gidx=${dt.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
+				                        <a href="detail.do?Gidx=${dt.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
 				                     </div>   
 				                    </div>            
 				                 </c:forEach>				                        				                          
-				            </div>
-				           
+				            </div>			           
 				        </div>        
 				    </div>
 				</div>				
