@@ -51,21 +51,8 @@
 
 <body>
 
-	<!-- nav 화면 -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="Mainpage.jsp">Navbar</a>
- 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
+	<!--  Header -->
+	<c:import url="/header.do"></c:import>
 	
 	<!--  스티키 nav -->
 	<nav class="navbar sticky-top navbar-light bg-light container" id="navbar">
@@ -210,9 +197,8 @@
 	<script type="text/javascript">
 	var page = 1;
 	var adress = $('#adress').val();
-	var rateVal = 0;
+	var rateVal = 5;
     var price_append, rate_append="";
-    var rateVal = 0;
     
 	//checkbox 이벤트 감지 (상세 검색에서 사용)
 	
@@ -220,7 +206,7 @@
 		rateVal = $(this).val();
 		var checkedRate = $(this).prop('checked');
 		if( checkedRate == true) rateVal= $(this).val();
-		else rateVal = 0;
+		else rateVal = 5;
 		console.log(rateVal);
 		$('.col-8').empty();
 		ajax();
@@ -245,8 +231,7 @@
 		
 		success:function(data) { // 성공시 호출될 함수
 				
-				console.log(data);
-				if(data.length < 1 ){ }
+				if(data.length < 1 ){  console.log("데이타음슴")}
 				else{
 					
 				for(var i=0; i< data.length; i++){

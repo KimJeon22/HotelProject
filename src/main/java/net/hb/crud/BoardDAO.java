@@ -32,9 +32,7 @@ public class BoardDAO {
 		dto.setEnd(end);
 		dto.setH_adress(adress);
 		dto.setH_rate(rate);
-		System.out.println("dao"+rate);
 		List<BoardDTO> list = temp.selectList("board.selectDetail", dto);
-		System.out.println("!!!");
 		return list;
 	}
 	
