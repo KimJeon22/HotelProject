@@ -180,10 +180,20 @@ alter table room add( r_inwon number(4));
 alter table booking add(r_inwon number(4));
 alter table hotel add(h_content varchar2(1000));
 alter table reply add( re_id number(4));
+
 //07-30 수정사항
 alter table room add(r_cheap varchar2(10));
 alter table room drop column h_id;
-//더미데이터떄문에 20부터시작
+
+//08-05 수정사항 예약자 테이블 추가 및 예약테이블 멤버아이디 삭제
+alter table booking drop column m_num;
+create table booker(
+m_num number(4) not null,
+h_id number(4) not null,
+r_id number(4) not null
+);
+
+//더미데이터떄문에 21부터시작
 create sequence hotel_seq start with 21 increment by 1;
 create sequence room_seq start with 21 increment by 1;
 create sequence member_seq;
