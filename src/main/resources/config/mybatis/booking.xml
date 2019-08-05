@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="booking">
+
+<insert id="add">
+	insert into booking values (#{check_in}, #{check_out}, #{is_check}, #{r_id})
+</insert>
+
+<insert id="eradd">
+	insert into booking values (#{m_id}, #{h_id}, #{r_id}, #{b_inwon})
+</insert>
+
+	
+</mapper>

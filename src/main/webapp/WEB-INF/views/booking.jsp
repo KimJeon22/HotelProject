@@ -21,6 +21,8 @@ label,#col-8{
 </head>
 <body>
 
+
+	
 <!--  Header -->
 	<c:import url="/header.do"></c:import>
 	
@@ -165,9 +167,17 @@ label,#col-8{
 					</div>
 					
 				</div>
-				
-				<button type="button" class="btn btn-primary">예약</button>
-				<button type="button" class="btn btn-danger">취소</button>
+				<form method="post" action="bookingInsert.do">
+					<input type="hidden" name="check_in" value="${checkIn }">
+					<input type="hidden" name="check_out" value="${checkOut}">
+					<input type="hidden" name="is_check" value='n'>
+					<input type="hidden" name="r_id" value="${room[0].r_id }">
+					<input type="hidden" name="m_id" value="${member[0].m_id }">
+					<input type="hidden" name="h_id" value="${hotel[0].h_id }">
+					<input type="hidden" name="b_inwon" value="${room[0].r_inwon}">
+					<input type="submit" class="btn btn-primary" value="예약">
+					<input type="button" class="btn btn-danger" value="취소">
+				</form>
 			</div>
 		</div>
 	</div>
@@ -178,17 +188,5 @@ label,#col-8{
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 	
-	<script type="text/javascript">
-	
-	
-	window.onload = function () {
-		var member = ${member};
-		
-		if(member == 1){
-			alert("로그인을 해주세요");
-			history.back();
-		}
-	}
-	</script>
 </body>
 </html>

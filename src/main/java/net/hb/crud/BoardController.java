@@ -3,6 +3,7 @@ package net.hb.crud;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -142,7 +144,7 @@ public class BoardController {
 	public ModelAndView board_booking(
 			@RequestParam("checkIn_date") String checkIn, @RequestParam("checkOut_date") String checkOut,
 			@RequestParam("h_id") int h_id, @RequestParam("r_id") int r_id,
-			@RequestParam("price") int price, BoardDTO dto, HttpSession session) {
+			@RequestParam("price") int price, BoardDTO dto, HttpSession session,HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		int user_id;
 		List<RoomDTO> rlist = dao.dbRoomSelect2(r_id);
@@ -153,7 +155,16 @@ public class BoardController {
 		if(m_id == null) { 
 			m_id = "1";
 			user_id = Integer.parseInt(m_id);
-			mav.addObject("member", user_id);
+			PrintWriter out = null;
+			try {
+				response.setCharacterEncoding("UTF-8");
+				out = response.getWriter();
+				out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
+				out.flush();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			List<MemberDTO> mlist = mdao.memberSelect(m_id);

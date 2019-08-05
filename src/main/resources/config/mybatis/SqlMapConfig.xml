@@ -15,6 +15,7 @@
 		<mapper resource="config/mybatis/member.xml"/>
 		<mapper resource="config/mybatis/main.xml"/>
 		<mapper resource="config/mybatis/reply.xml"/>
+		<mapper resource="config/mybatis/booking.xml"/>	
 		
 	</mappers>
 </configuration>
