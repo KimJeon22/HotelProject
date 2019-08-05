@@ -14,15 +14,18 @@
 	crossorigin="anonymous">
 	
 <script type="text/javascript">
+
 	function re_save(){
-		var form = document.myform;
 		var id = <%=(String)session.getAttribute("m_id")%>
+		var form = document.myform;
 		
-		if (id==null){
-			alert('로그인 후 이용해주세요')
-		} else{
+		if(id==null || id==""){
+			alert("로그인 후 이용해주세요");
+		} else {
 			form.submit();
 		}
+		
+		
 	}
 </script>
 
@@ -46,7 +49,8 @@
 			<label class="radio-inline">
 			  <input type="radio" name="re_rate" id="inlineRadio3" value="5"> <font color="orange">★★★★★</font>
 			</label>
-			<button id=roomAppend class="btn btn-primary" onClick="re_save()">댓글 저장</button>
+			<input type="hidden" name="url" value="${url}"/>
+			<input type="button" id=roomAppend class="btn btn-primary" onClick="re_save()" value="댓글 저장"/>
 		</form>
 	</div>
 	<div>
@@ -64,6 +68,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		
 	</div>
 
 
