@@ -23,15 +23,24 @@ public class ReplyController {
 	@Inject
 	ReplyDAO dao;
 	
+	int a;
+	
 	@RequestMapping("/rinsert.do")
-	public String reply_insert(@RequestParam("Gidx") int h_id,ReplyDTO dto,HttpSession session) {
-		dto.setH_id(h_id);
+	public String reply_insert(ReplyDTO dto,HttpSession session) {
+		dto.setH_id(a);
 		dto.setM_id((String) session.getAttribute("m_id"));
+		
+		System.out.println(dto.getH_id());
+		System.out.println(dto.getM_id());
+		System.out.println(dto.getRe_date());
+		System.out.println(dto.getRe_id());
+		System.out.println(dto.getRe_content());
 		dao.dbInsert(dto);
-		return "redirect:/detail.do?Gidx="+h_id;
+		return "opener.location.reload()";
 	}
 	@RequestMapping("/rselect.do")
 	public ModelAndView replySelect(@RequestParam("Gidx") int h_id) {
+		a=h_id;
 		ModelAndView mav = new ModelAndView();
 		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
 		list=dao.dbreplySelect(h_id);

@@ -204,5 +204,6 @@ create sequence reply_seq;
 //190805
 alter table reply add constraint pk_reply primary key(re_id);
 alter table reply drop column m_num;
+alter table reply add re_rate number(1);
 
 

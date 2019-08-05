@@ -7,11 +7,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="replyAdd">
 		insert into reply
-		values(#{m_id},#{re_content},sysdate,#{h_id},reply_seq.nextval)
+		values(#{m_id},#{re_content},sysdate,#{h_id},reply_seq.nextval,#{re_rate})
 	</insert>
 	
-	<select id="replySelect" resultType="net.hb.booking.ReplyDTO">
-		select * from reply where h_name = #{h_id}
+	<select id="replySelect" resultType="net.hb.reply.ReplyDTO">
+		select * from reply where h_id = #{h_id}
 	</select>
 
 </mapper>

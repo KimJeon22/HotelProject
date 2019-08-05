@@ -9,23 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import net.hb.booking.RoomDTO;
-
 @Repository
 @Component
 public class ReplyDAO {
-	
+
 	@Inject
 	@Autowired
 	SqlSessionTemplate temp;
-	
+
 	public List<ReplyDTO> dbreplySelect(int h_id) {
-		List<ReplyDTO> list= temp.selectList("reply.replySelect", h_id);
+		List<ReplyDTO> list = temp.selectList("reply.replySelect", h_id);
 		return list;
 	}
-	
+
 	public void dbInsert(ReplyDTO dto) {
-		temp.insert("reply.replyAdd",dto);
+		temp.insert("reply.replyAdd", dto);
 	}
 
 }
