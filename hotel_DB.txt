@@ -194,6 +194,8 @@ h_id number(4) not null,
 r_id number(4) not null,
 b_inwon number(4) not null
 );
+alter table booker modify(m_num varchar(100));
+alter table booker rename column m_num to m_id;
 
 //더미데이터떄문에 21부터시작
 create sequence hotel_seq start with 21 increment by 1;
