@@ -187,10 +187,12 @@ alter table room drop column h_id;
 
 //08-05 수정사항 예약자 테이블 추가 및 예약테이블 멤버아이디 삭제
 alter table booking drop column m_num;
+alter table booking drop column r_inwon;
 create table booker(
 m_num number(4) not null,
 h_id number(4) not null,
-r_id number(4) not null
+r_id number(4) not null,
+b_inwon number(4) not null
 );
 
 //더미데이터떄문에 21부터시작
@@ -199,5 +201,8 @@ create sequence room_seq start with 21 increment by 1;
 create sequence member_seq;
 create sequence reply_seq;
 
+//190805
+alter table reply add constraint pk_reply primary key(re_id);
+alter table reply drop column m_num;
 
 
