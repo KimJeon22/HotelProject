@@ -147,7 +147,7 @@
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
-        					<p class="card-title"><a href="Detail.do?Gidx=${dto.h_id}">${dto.h_name}</a></p>
+        					<p class="card-title"><a href="detail.do?Gidx=${dto.h_id}">${dto.h_name}</a></p>
         					<c:forEach begin="1" end="${dto.h_rate }" step="1">
 								<font color="orange"> <label id=text>★</label></font>
 							</c:forEach>
