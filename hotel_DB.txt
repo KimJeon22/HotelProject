@@ -26,7 +26,7 @@ CREATE TABLE hotel (
 	h_name VARCHAR2(100) NOT NULL, 
 	h_adress VARCHAR2(100) NOT NULL, 
 	h_image VARCHAR2(100) NOT NULL,
-	h_rate NUMBER(4)
+	h_rate NUMBER(4) 
 );
 
 CREATE UNIQUE INDEX PK_hotel

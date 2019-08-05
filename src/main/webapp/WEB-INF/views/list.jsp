@@ -164,7 +164,8 @@
 											<label class="card-title" >최저가 ${dto.r_price}원</label> <br>
 										</c:when>
 									</c:choose>
-								<a href="detail.do?Gidx=${dto.h_id }"><input type="button" class="btn btn-success" value="예약하기"></a>
+								<a href="detail.do?Gidx=${dto.h_id}&checkIn_date=${checkIn }&checkOut_date=${checkOut }&day=${day }">
+								<input type="button" class="btn btn-success" value="예약하기"></a>
       						</div>
     					</div>
   					</div>

@@ -47,9 +47,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		int total = dao.dbCount();
 		int start = 0, end = 5;
-		
 		if( total < 5) end = total;
-		
 		List<BoardDTO> hotelList = dao.dbSelect(start, end, dto.getH_adress());
 		 
 		
@@ -117,16 +115,28 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/detail.do")
-	public ModelAndView board_detail(@RequestParam("Gidx") int data,BoardDTO bdto) {
+	public ModelAndView board_detail(@RequestParam("Gidx") int data, @RequestParam("day") int day,
+			@RequestParam("checkIn_date") String checkIn, @RequestParam("checkOut_date") String checkOut, BoardDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		List<RoomDTO> list = new ArrayList<RoomDTO>();
 		
-		bdto = dao.dbDetail(data);
-		System.out.println(bdto.getH_name());
-		list = dao.dbRoomSelect(bdto.getH_name());
-		mav.addObject("bdto", bdto);
-		mav.addObject("rdto", list);
-		mav.setViewName("detail.jsp");
+		dto = dao.dbDetail(data);
+		list = dao.dbRoomSelect(dto.getH_name());
+		mav.addObject("bdto", dto); //호텔테이블 정보
+		mav.addObject("rdto", list); // 름테이블  정보
+		mav.addObject("checkIn", checkIn);
+		mav.addObject("checkOut", checkOut);
+		mav.addObject("day", day);
+		mav.setViewName("WEB-INF/views/detail.jsp");
+		return mav;
+	}
+	
+	@RequestMapping("/booking.do")
+	public ModelAndView board_booking(@RequestParam("h_id") int data, BoardDTO dto) {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		mav.setViewName("WEB-INF/views/booking.jsp");
 		return mav;
 	}
 }

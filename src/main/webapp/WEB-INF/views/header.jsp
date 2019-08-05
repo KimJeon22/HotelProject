@@ -16,6 +16,9 @@
  background: rgb(76, 80, 87);
  color:white;
 }
+
+.cd-accordion__item{
+}
 a:link { color: white; text-decoration: none;}
 a:visited { color: black; text-decoration: none;}
 a:hover { color: white; text-decoration: underline;}

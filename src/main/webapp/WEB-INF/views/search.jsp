@@ -2,62 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<style>
-#date {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-#country{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-
-#submit {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#submit:hover {
-  background-color: #45a049;
-}
-
-.search {
-  float:left;
-  margin-right:10px;
-  width: 90%;
-  border-radius: 5px;
-  background-color: #29416B;
-  padding: 20px;
-}
-
-label{
-  color: white;
-  font-size: medium;
-}
-
-#submit{
- font-size: medium;
-}
-
-</style>
 
 <script type="text/javascript">
 	$(function() {
@@ -96,6 +40,10 @@ label{
    
   
 </script>
+
+<!-- serach css -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sora.css">
+
 <body>
 
 <div class="search" >
