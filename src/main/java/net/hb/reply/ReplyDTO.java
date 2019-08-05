@@ -3,14 +3,19 @@ package net.hb.reply;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import lombok.Data;
 
 public class ReplyDTO {
-	String m_id, re_content,date;
+	String m_id, re_content,date,url;
 	Date re_date;
 	int h_id, m_num, re_id,re_rate;
 	
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public int getRe_rate() {
 		return re_rate;
 	}

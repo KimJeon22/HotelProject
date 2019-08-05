@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,13 @@ public class ReplyController {
 	@Inject
 	ReplyDAO dao;
 	
-	int a;
+	int id;
 	
 	@RequestMapping("/rinsert.do")
 	public String reply_insert(ReplyDTO dto,HttpSession session) {
-		dto.setH_id(a);
+		dto.setH_id(id);
 		dto.setM_id((String) session.getAttribute("m_id"));
+		
 		
 		System.out.println(dto.getH_id());
 		System.out.println(dto.getM_id());
@@ -36,16 +38,20 @@ public class ReplyController {
 		System.out.println(dto.getRe_id());
 		System.out.println(dto.getRe_content());
 		dao.dbInsert(dto);
-		return "opener.location.reload()";
+		return "redirect:detail.do?"+dto.getUrl();
 	}
 	@RequestMapping("/rselect.do")
-	public ModelAndView replySelect(@RequestParam("Gidx") int h_id) {
-		a=h_id;
+	public ModelAndView replySelect(@RequestParam("Gidx") int h_id, HttpServletRequest req) {
+		id=h_id;
+		String url = req.getQueryString();
 		ModelAndView mav = new ModelAndView();
 		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
 		list=dao.dbreplySelect(h_id);
 		mav.addObject("redto", list);
+		mav.addObject("url", url);
 		mav.setViewName("WEB-INF/views/reply.jsp");
+		
+		
 		return mav;
 	}
 }

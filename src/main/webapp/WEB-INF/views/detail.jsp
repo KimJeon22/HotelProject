@@ -18,7 +18,6 @@
 <body>
 	<!--  Header -->
 	<c:import url="/header.do"></c:import>
-
 	<div class="container">
 		<h1>${bdto.h_name}</h1>
 		<div>
