@@ -89,8 +89,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
-
+		
+		<c:import url="/rselect.do.do?Gidx=${bdto.b_id}"/>
 	</div>
 
 
