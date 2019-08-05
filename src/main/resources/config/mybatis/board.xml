@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="board">
 	
+	<select id="Hotelselect" resultType="net.hb.crud.BoardDTO">
+		select * from hotel where h_id = #{h_id}
+	</select>
+	
 	<select id="selectAll" resultType="net.hb.crud.BoardDTO">
 		select *
 		from (

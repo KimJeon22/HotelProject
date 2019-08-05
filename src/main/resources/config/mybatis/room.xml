@@ -13,5 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="roomSelect" resultType="net.hb.booking.RoomDTO">
 		select * from room where h_name = #{h_name}
 	</select>
+	
+	<select id="roomSelect2" resultType="net.hb.booking.RoomDTO">
+		select * from room where r_id = #{r_id}
+	</select>
 
 </mapper>

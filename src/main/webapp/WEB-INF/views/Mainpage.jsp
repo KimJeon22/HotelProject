@@ -131,7 +131,7 @@ h3{
 <!-- 검색옵션 -->
 <div class="content" >
    <div id="main">
-      <jsp:include page="search2.jsp"></jsp:include> 
+      <jsp:include page="search.jsp"></jsp:include> 
    </div> 
 <div id="img"> 
       <img src="resources/images/hotel.png"></div>

@@ -19,7 +19,12 @@ public class BoardDAO {
 	@Inject
 	@Autowired
 	SqlSessionTemplate temp;
-
+	
+	public List<BoardDTO> hotelSelect(int h_id) {
+		List<BoardDTO> list = temp.selectList("board.Hotelselect", h_id);
+		return list;
+	}
+	
 	public List<BoardDTO> dbSelect(int start, int end, String adress) {
 		BoardDTO dto = new BoardDTO();
 		dto.setStart(start);
@@ -51,6 +56,11 @@ public class BoardDAO {
 	
 	public List<RoomDTO> dbRoomSelect(String h_name) {
 		List<RoomDTO> list= temp.selectList("room.roomSelect", h_name);
+		return list;
+	}
+	
+	public List<RoomDTO> dbRoomSelect2(int r_id) {
+		List<RoomDTO> list= temp.selectList("room.roomSelect2", r_id);
 		return list;
 	}
 

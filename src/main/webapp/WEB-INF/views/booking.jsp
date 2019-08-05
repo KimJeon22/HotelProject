@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +17,13 @@
 label,#col-8{
 	font-size: 25px;
 }
-div{
-border: 2px solid #D9E5FF;
-}
 </style>
-
 </head>
 <body>
 
+<!--  Header -->
+	<c:import url="/header.do"></c:import>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-8">
@@ -33,12 +34,12 @@ border: 2px solid #D9E5FF;
 				<div>
 					<label id="col-8">예약자 이름</label>
 					<p>
-						<input type="text" placeholder="이름 입력">
+						<input type="text"  placeholder="이름을 입력해주세요" value="${member[0].m_name }">
 				</div>
 				<div>
 					<label id="col-8">휴대폰 번호 </label>
 					<p>
-						<input type="text" placeholder="  -를 제외한 휴대폰 번호 입력">
+						<input type="text" placeholder="-를 제외한 휴대폰 번호 입력" value=${member[0].m_phone }>
 				</div>
 				<div style="margin-bottom:20px;">
 					<label id="col-8">프로모션</label>
@@ -118,29 +119,28 @@ border: 2px solid #D9E5FF;
 				
 				<!-- 방정보 -->
 				<div>
-					<label id="col-4">호텔명</label>
-					<p>주소부분</p>
-					<p>주소부분</p>
+					<label id="col-4">${hotel[0].h_name }</label>
+					<p>${hotel[0].h_adress }</p>
 				</div>
 				
 				<!-- 체크인, 체크아웃 정보 -->
 				<div>
 					<div class="row">
 						<div class="col">체크인 날짜</div>
-						<div class="col" align="right">~~~~</div>
+						<div class="col" align="right">${checkIn }</div>
 					</div>
 					<div class="row">
 						<div class="col">체크아웃 날짜</div>
-						<div class="col" align="right">~~~~</div>
+						<div class="col" align="right">${checkOut }</div>
 					</div>
 				</div>
 				
 				<!-- 객실정보 -->
 				<div>
-					<label id="col-4">객실명</label>
+					<label id="col-4">${room[0].r_name }</label>
 					<div class="row">
 						<div class="col">객실 최대 인원(명)</div>
-						<div class="col" align="right">3</div>
+						<div class="col" align="right">${room[0].r_inwon}명</div>
 					</div>
 					
 					<div class="row">
@@ -156,7 +156,7 @@ border: 2px solid #D9E5FF;
 				<div>
 					<div class="row">
 						<div class="col">예약가(won)</div>
-						<div class="col" align="right">~~~~</div>
+						<div class="col" align="right">${price }</div>
 					</div>
 					
 					<div class="row">
@@ -176,5 +176,19 @@ border: 2px solid #D9E5FF;
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	
+	<script type="text/javascript">
+	
+	
+	window.onload = function () {
+		var member = ${member};
+		
+		if(member == 1){
+			alert("로그인을 해주세요");
+			history.back();
+		}
+	}
+	</script>
 </body>
 </html>

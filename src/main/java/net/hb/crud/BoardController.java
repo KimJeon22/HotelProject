@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.hb.booking.RoomDTO;
+import net.hb.member.MemberDAO;
+import net.hb.member.MemberDTO;
 
 /**
  * Handles requests for the application home page.
@@ -38,6 +41,10 @@ public class BoardController {
 	@Autowired
 	@Inject
 	BoardDAO dao;
+	@Autowired
+	@Inject
+	MemberDAO mdao;
+	
 	int pageCount = 5;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -127,15 +134,37 @@ public class BoardController {
 		mav.addObject("checkIn", checkIn);
 		mav.addObject("checkOut", checkOut);
 		mav.addObject("day", day);
-		mav.setViewName("WEB-INF/views/detail.jsp");
+		mav.setViewName("WEB-INF/views/detail2.jsp");
 		return mav;
 	}
 	
 	@RequestMapping("/booking.do")
-	public ModelAndView board_booking(@RequestParam("h_id") int data, BoardDTO dto) {
+	public ModelAndView board_booking(
+			@RequestParam("checkIn_date") String checkIn, @RequestParam("checkOut_date") String checkOut,
+			@RequestParam("h_id") int h_id, @RequestParam("r_id") int r_id,
+			@RequestParam("price") int price, BoardDTO dto, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		int user_id;
+		List<RoomDTO> rlist = dao.dbRoomSelect2(r_id);
+		List<BoardDTO> hlist = dao.hotelSelect(h_id);
 		
+		String m_id = (String) session.getAttribute("m_id");
 		
+		if(m_id == null) { 
+			m_id = "1";
+			user_id = Integer.parseInt(m_id);
+			mav.addObject("member", user_id);
+		}
+		else {
+			List<MemberDTO> mlist = mdao.memberSelect(m_id);
+			mav.addObject("member",mlist);
+		}
+		
+		mav.addObject("checkIn", checkIn);
+		mav.addObject("checkOut", checkOut);
+		mav.addObject("price",price);
+		mav.addObject("room", rlist);
+		mav.addObject("hotel",hlist);
 		mav.setViewName("WEB-INF/views/booking.jsp");
 		return mav;
 	}

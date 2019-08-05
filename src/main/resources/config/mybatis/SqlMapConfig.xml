@@ -6,7 +6,6 @@
 	<typeAliases>
 	   <typeAlias alias="dto" type="net.hb.crud.BoardDTO"/>
 	   
-	   
 	</typeAliases>
 	
 	<mappers>

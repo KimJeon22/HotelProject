@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.hb.crud.BoardDTO;
+import net.hb.member.MemberDTO;
 
 
 @Controller
@@ -94,7 +95,13 @@ public class MainController {
 	 * System.out.println("두번쨰투어컨트롤러완료"); return mav; }
 	 */
 	  
-	  
+	
+			
+		
+		@RequestMapping("/mainpage.do")
+		public String main(MemberDTO dto) {
+			return "WEB-INF/views/Mainpage.jsp";
+		}
 	
 	
 }//class END
