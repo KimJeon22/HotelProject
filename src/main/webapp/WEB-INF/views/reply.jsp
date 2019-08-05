@@ -17,12 +17,12 @@
 
 	function re_save(){
 		var id = <%=(String)session.getAttribute("m_id")%>
-		var form = document.myform;
 		
-		if(id==null || id==""){
+		if(id==null){
 			alert("로그인 후 이용해주세요");
 		} else {
-			form.submit();
+			alert("aa");
+			document.myform.submit();
 		}
 		
 		
