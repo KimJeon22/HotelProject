@@ -33,7 +33,6 @@ public class MainController {
 	@Inject
 	MainDAO dao;
 	
-
 	
 	/*
 	 * @RequestMapping("/tourSearch.do") public String
@@ -44,9 +43,7 @@ public class MainController {
 	 * return "WEB-INF/views/hotelList.do"; }
 	 */
 	
-	
-	 
-	
+		
 	  @RequestMapping("/tourSearch.do") 
 	  public ModelAndView toursearch(MainDTO dto, @RequestParam("timg") String timg ) {
 		  //관광지 스플릿변수설정
@@ -54,6 +51,9 @@ public class MainController {
 			  String B = null;
 			  String C = null;
 			  String D = null;
+			  
+			  String w = null;
+			  String k = null;
 		  //System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
 		  ModelAndView mav = new ModelAndView(); 
 		  
@@ -68,7 +68,17 @@ public class MainController {
 				   B = strA[1];
 				   C = strA[2];
 				   D = strA[3];			  
-			  }		  
+			  }	
+		  //위도경도 정보 
+			  String atr = dtos.t_mlat;
+			  //System.out.println("위도="+ atr);
+			  String atrA[] = atr.split("/");
+			  for(int i=0; i<atrA.length; i++) {
+				  //System.out.println("위도스플릿="+atrA[i]);
+				  w = atrA[0];
+				  k = atrA[1];
+			  } 
+			  
 		  //호텔정보&룸가격 
 		  List<MainDTO> dt = dao.dbHselect();
 		/*
@@ -82,6 +92,8 @@ public class MainController {
 		  mav.addObject("B", B); //관광지정보
 		  mav.addObject("C", C); //관광지정보
 		  mav.addObject("D", D); //관광지정보
+		  mav.addObject("w", w); //위도정보
+		  mav.addObject("k", k); //경도정보
 				  
 		  //System.out.println("컨트롤러 완료");
 		  mav.setViewName("WEB-INF/views/MainDetail.jsp"); 	  
@@ -95,9 +107,7 @@ public class MainController {
 	 * System.out.println("두번쨰투어컨트롤러완료"); return mav; }
 	 */
 	  
-	
 			
-		
 		@RequestMapping("/mainpage.do")
 		public String main(MemberDTO dto) {
 			return "WEB-INF/views/Mainpage.jsp";
