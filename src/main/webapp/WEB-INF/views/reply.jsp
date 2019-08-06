@@ -17,12 +17,14 @@
 
 
 	function re_save(){
-		var id = "<%=(String)session.getAttribute("m_id")%>"
+		var id = "<%=session.getAttribute("m_id")%>";
 		if(id==null){
 			alert("로그인 후 이용해주세요");
 		} else if(id!=null) {
-			if($('input:radio[name=re_rate]').is('checked')==false)
-				alert("별점을 체크해주세요");
+			if(!$(':input:radio[name=re_rate]:checked').val()) {   
+			   alert("별점 체크!");
+			   return;
+			}
 			else
 				document.myform.submit();
 		}
@@ -65,7 +67,11 @@
 			<c:forEach var="dto" items="${redto}">
 				<tr>
 					<td>${dto.m_id}</td>
-					<td>${dto.re_content}</td>
+					<td>${dto.re_content}
+					<c:if test="${dto.m_id==sessionScope.m_id}">
+						<a href="replydelete.do?Gidx=${dto.re_id}" class="btn btn-danger">삭제</a>
+					</c:if>
+					</td>
 					<td>${dto.date }</td>
 				</tr>
 			</c:forEach>

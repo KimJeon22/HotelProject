@@ -25,5 +25,9 @@ public class ReplyDAO {
 	public void dbInsert(ReplyDTO dto) {
 		temp.insert("reply.replyAdd", dto);
 	}
+	
+	public void dbDelete(int re_id) {
+		temp.delete("reply.replyDelete",re_id);
+	}
 
 }

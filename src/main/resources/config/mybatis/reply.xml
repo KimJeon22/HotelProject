@@ -13,5 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="replySelect" resultType="net.hb.reply.ReplyDTO">
 		select * from reply where h_id = #{h_id}
 	</select>
+	
+	<delete id="replyDelete">
+		delete from reply where re_id = #{re_id}
+	</delete>
 
 </mapper>
