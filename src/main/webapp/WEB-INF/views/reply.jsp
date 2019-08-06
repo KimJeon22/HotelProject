@@ -15,14 +15,16 @@
 	
 <script type="text/javascript">
 
+
 	function re_save(){
-		var id = <%=(String)session.getAttribute("m_id")%>
-		
+		var id = "<%=(String)session.getAttribute("m_id")%>"
 		if(id==null){
 			alert("로그인 후 이용해주세요");
-		} else {
-			alert("aa");
-			document.myform.submit();
+		} else if(id!=null) {
+			if($('input:radio[name=re_rate]').is('checked')==false)
+				alert("별점을 체크해주세요");
+			else
+				document.myform.submit();
 		}
 		
 		
