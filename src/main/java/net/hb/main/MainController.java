@@ -71,7 +71,6 @@ public class MainController {
 			  }	
 		  //위도경도 정보 
 			  String atr = dtos.t_mlat;
-			  //System.out.println("위도="+ atr);
 			  String atrA[] = atr.split("/");
 			  for(int i=0; i<atrA.length; i++) {
 				  //System.out.println("위도스플릿="+atrA[i]);
