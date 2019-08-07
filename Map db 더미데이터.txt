@@ -1,0 +1,127 @@
+alter table hotel add unique(h_name);
+
+commit;
+
+delete from hotel;
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('노보텔앰배서더강남호텔','서울',1,1, 'hotel1.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('르메르디앙호텔','서울',2,5,'hotel2.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베스트웨스트호텔','서울',3,3,'hotel3.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('아원관광호텔','부여',4,3,'hotel4.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('더시티호텔','부여',5,5,'hotel5.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('조선호텔','부여',6,3,'hotel6.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('제주신라호텔','제주',7,5,'hotel7.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('제주롯데호텔','제주',8,3,'hotel8.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES('하얏트리젠시제주호텔','제주',9,1,'hotel9.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('프라자인호텔','안성',10,3,'hotel10.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('호텔올림피아','안성',11,1,'hotel11.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베키니아음성호텔','안성',12,4,'hotel12.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('고려호텔','안동',13,5,'hotel13.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('안동호텔','안동',14,1,'hotel14.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('안동파크호텔','안동',15,3,'hotel15.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('코모도호텔','경주',16,1,'hotel16.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('힐튼경주','경주',17,3,'hotel17.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베니키아스위스로젠호텔','경주',18,2,'hotel18.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('충부비치호텔','통영',19,3,'hotel19.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('하와이호텔','통영',20,4,'hotel20.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('브라운도트호텔','통영',21,1,'hotel21.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('레지던스호텔라미아','대전',22,3,'hotel22.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('이안레지던스호텔','대전',23,2,'hotel23.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('블루샵레지던스호텔','대전',24,5,'hotel24.jpg');
+
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('크라운호텔','보성',25,3,'hotel25.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('호텔안','보성',26,5,'hotel26.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진송관광호텔','보성',27,2,'hotel27.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('HS관광호텔','남해',28,1,'hotel28.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('유탑마리나호텔','남해',29,4,'hotel29.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('여수베네치아호텔','남해',30,2,'hotel30.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('파라다이스호텔','부산',31,5,'hotel31.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진산호텔앤리조트해운대','부산',32,3,'hotel32.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베니키아프리미어마리안느호텔','부산',33,2,'hotel33.jpg');
+
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산관광호텔','고창',34,2,'hotel34.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('동백호텔','고창',35,5,'hotel35.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산유스호스텔','고창',36,3,'hotel36.jpg');
+
+
+
+======================================================================
+drop table maps 
+   cascade constraints;
+
+commit;
+
+create table maps ( 
+     t_area varchar2(100) not null,
+     h_name varchar2(100) not null,
+     m_lat varchar2(100) not null,
+     m_long varchar2(100) not null
+     );
+
+commit;
+
+alter table maps  
+add constraint fk_maps foreign key(h_name)
+references hotel(h_name);
+
+commit;
+
+insert into maps( t_area, h_name, m_lat, m_long) values( '서울', '노보텔앰배서더강남호텔', '37.505258' , '127.02882899999997');
+insert into maps( t_area, h_name, m_lat, m_long) values( '서울', '르메르디앙호텔', '37.5047005', '127.02751660000001');
+insert into maps( t_area, h_name, m_lat, m_long) values( '서울', '베스트웨스트호텔', '37.50634', '127.02977399999997');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('부여', '아원관광호텔', '36.18696020000001', '127.098703');
+insert into maps( t_area, h_name, m_lat, m_long) values('부여', '더시티호텔', '36.2033342', '127.0891911');
+insert into maps( t_area, h_name, m_lat, m_long) values('부여', '조선호텔', '36.20351429999999', '127.09023320000006');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('제주', '제주신라호텔', '33.2473942', '126.4080371');
+insert into maps( t_area, h_name, m_lat, m_long) values('제주', '제주롯데호텔', '33.248573', '126.41056000000003');
+insert into maps( t_area, h_name, m_lat, m_long) values('제주', '하얏트리젠시제주호텔', '33.2445395', '126.40601289999995');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('안성', '프라자인호텔', '36.9896135', '127.44302399999992');
+insert into maps( t_area, h_name, m_lat, m_long) values('안성', '호텔올림피아', '36.9999714', '127.33595070000001');
+insert into maps( t_area, h_name, m_lat, m_long) values('안성', '베키니아음성호텔', '36.9742187', '127.4738112'); 
+
+insert into maps( t_area, h_name, m_lat, m_long) values('안동', '고려호텔', '36.5644132', '128.7328963');
+insert into maps( t_area, h_name, m_lat, m_long) values('안동', '안동호텔', '36.5668806', '128.78034460000003');
+insert into maps( t_area, h_name, m_lat, m_long) values('안동', '안동파크호텔', '36.5640193', '128.73553800000002'); 
+
+insert into maps( t_area, h_name, m_lat, m_long) values('경주', '코모도호텔', '35.1091396', '129.03545250000002');
+insert into maps( t_area, h_name, m_lat, m_long) values('경주', '힐튼경주', '35.8400509', '129.28601460000004');
+insert into maps( t_area, h_name, m_lat, m_long) values('경주', '베니키아스위스로젠호텔', '35.8404461', '129.2923389');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('통영', '충부비치호텔', '34.8420241', '128.41892400000006');
+insert into maps( t_area, h_name, m_lat, m_long) values('통영', '하와이호텔', '34.840385', '128.42183');
+insert into maps( t_area, h_name, m_lat, m_long) values('통영', '브라운도트호텔', '34.842061', '128.42390690000002');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('대전', '레지던스호텔라미아', '36.3530558', '127.38058669999998');
+insert into maps( t_area, h_name, m_lat, m_long) values('대전', '이안레지던스호텔', '36.3526475', '127.38093419999996');
+insert into maps( t_area, h_name, m_lat, m_long) values('대전', '블루샵레지던스호텔', '36.3526475', '127.38093419999996');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('보성', '크라운호텔', '34.7714563', '127.07989440000006');
+insert into maps( t_area, h_name, m_lat, m_long) values('보성', '호텔안', '34.6787145', '126.90683000000001');
+insert into maps( t_area, h_name, m_lat, m_long) values('보성', '진송관광호텔', '34.677715', '126.90613600000006');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('남해', 'HS관광호텔', '34.743201', '127.74995109999998');
+insert into maps( t_area, h_name, m_lat, m_long) values('남해', '유탑마리나호텔', '34.7443008', '127.75051639999992');
+insert into maps( t_area, h_name, m_lat, m_long) values('남해', '여수베네치아호텔', '34.7457579', '127.75171239999997');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('부산', '파라다이스호텔', '35.1601338', '129.1646875');
+insert into maps( t_area, h_name, m_lat, m_long) values('부산', '진산호텔앤리조트해운대', '35.1600161', '129.16305039999997');
+insert into maps( t_area, h_name, m_lat, m_long) values('부산', '베니키아프리미어마리안느호텔', '35.1615294', '129.16456540000001');
+
+insert into maps( t_area, h_name, m_lat, m_long) values('고창', '선운산관광호텔', '35.5036454', '126.58506699999998');
+insert into maps( t_area, h_name, m_lat, m_long) values('고창', '동백호텔', '35.504166', '126.58511799999997');
+insert into maps( t_area, h_name, m_lat, m_long) values('고창', '선운산유스호스텔', '35.5034442', '126.58320140000001');
+
+commit; 
