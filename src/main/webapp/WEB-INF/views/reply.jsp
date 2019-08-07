@@ -15,7 +15,10 @@
 	
 <script type="text/javascript">
 	function re_save(){
-				document.myform.submit();
+		if(!$(':input:radio[name=re_rate]:checked').val()) {   
+			   alert("별점 체크!");
+		} else 
+			document.myform.submit();
 		}
 </script>
 
@@ -47,15 +50,21 @@
 		<table class="table">
 			<tr>
 				<th>작성자</th>
+				<th>평점</th>
 				<th>내용</th>
 				<th>작성날짜</th>
 			</tr>
 			<c:forEach var="dto" items="${redto}">
 				<tr>
 					<td>${dto.m_id}</td>
+					<td>
+						<c:forEach begin="1" end="${dto.re_rate}" step="1">
+							<font color="orange">★</font>
+						</c:forEach>
+					</td>
 					<td>${dto.re_content}
 					<c:if test="${dto.m_id==sessionScope.m_id}">
-						<a href="replydelete.do?Gidx=${dto.re_id}" class="btn btn-danger">삭제</a>
+						<a href="replydelete.do?Gidx=${dto.re_id}&url=${url}" class="btn btn-danger">삭제</a>
 					</c:if>
 					</td>
 					<td>${dto.date }</td>
