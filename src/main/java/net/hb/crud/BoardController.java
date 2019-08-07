@@ -76,7 +76,7 @@ public class BoardController {
 		        e.printStackTrace();
 		    	}
 			}
-		
+		//map 지도추가 
 		List<BoardDTO> mplist = dao.dbmaplist();
 						  
 		mav.addObject("start", start);

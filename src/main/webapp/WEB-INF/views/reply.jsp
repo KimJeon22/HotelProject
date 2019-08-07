@@ -49,10 +49,10 @@
 	<div>
 		<table class="table">
 			<tr>
-				<th>작성자</th>
-				<th>평점</th>
+				<th width="120">작성자</th>
+				<th width="170">평점</th>
 				<th>내용</th>
-				<th>작성날짜</th>
+				<th width="150">작성날짜</th>
 			</tr>
 			<c:forEach var="dto" items="${redto}">
 				<tr>

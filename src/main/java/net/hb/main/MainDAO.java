@@ -28,7 +28,7 @@ public class MainDAO {
 	 
 	  public List<MainDTO> dbHselect(String area){ 
 		  List<MainDTO> hlist =  temp.selectList("tour.hotellist", area); 
-	      System.out.println("hoteldao단 수정한것 완료");
+	      //System.out.println("hoteldao단 수정한것 완료");
 	  return hlist;
 	  }
 	  
@@ -37,6 +37,11 @@ public class MainDAO {
 		  //System.out.println("mapdao 완료");
 		  return mlist;
 	  }
+	  
+
+
+	  
+	  
 	  
 	  
  

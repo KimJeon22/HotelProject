@@ -165,7 +165,7 @@
 				                        <a href="#"><img src="${pageContext.request.contextPath}/resources/hotel_image/${dt.h_image}"></a>
 				                    </div>
 				                    <div class="col-md-8 card-body ">				        
-				                        <a href="#"><span><h3>${dt.h_name}</h3></span></a><p></p>				                        
+				                        <span><h3>${dt.h_name}</h3></span><p></p>				                        
 				                         <sapn><h4>주소: ${dt.h_adress}</h4></sapn>
 				                        <ul class="list-inline">
 				                             <li class="list-inline-item"><h4>1인 - 최대 x인</h4></li><br><br>				                     

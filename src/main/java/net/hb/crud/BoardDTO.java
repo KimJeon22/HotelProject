@@ -11,7 +11,7 @@ public class BoardDTO {
 	String h_name, h_adress, h_image, h_content;
 	String checkIn_date, checkOut_date;
 	
-	//maps 
+	//maps db
     String t_area, m_lat, m_long;
 		
 }

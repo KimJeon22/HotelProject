@@ -1,6 +1,5 @@
 package net.hb.booking;
 
-
 import lombok.Data;
 
 @Data

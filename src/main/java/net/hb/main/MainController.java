@@ -85,6 +85,7 @@ public class MainController {
 		  //호텔정보&룸가격 
 		  List<MainDTO> dt = dao.dbHselect(area);
 		  
+		  
 		/*
 		 * for(int i=0; i<dtoss.size(); i++) { MainDTO dt = new MainDTO();
 		 * //System.out.println("컨트롤러에서 나온호텔이름=" + dtoss.get(i).getH_name()); String

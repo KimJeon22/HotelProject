@@ -92,7 +92,7 @@ public class BoardDAO {
 		}
 
 	}
-	
+	 //map 지도 추가 
 	  public List<BoardDTO> dbmaplist(){
 		  
 		List<BoardDTO> mplist = temp.selectList("board.maplist");
