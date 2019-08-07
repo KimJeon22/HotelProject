@@ -18,7 +18,7 @@
 <style type="text/css">
 	.card-title{ font-size: large; }
 	.card-text{ font-size: small; }
- 	a{ color: white; }
+ 	a{ color: black; }
  	a:link { color: blue; text-decoration: none;}
  	a:visited { color: blue; text-decoration: none;}
  	a:hover { color: blue; text-decoration: underline;}
@@ -147,12 +147,12 @@
     				</div>
     				<div class="col-md-8">
       					<div class="card-body">
-        					<p class="card-title"><a href="detail.do?Gidx=${dto.h_id}">${dto.h_name}</a></p>
+        					<p class="card-title"><a href="detail.do?Gidx=${dto.h_id}&checkIn_date=${checkIn }&checkOut_date=${checkOut }&day=${day }">${dto.h_name}</a></p>
         					<c:forEach begin="1" end="${dto.h_rate }" step="1">
 								<font color="orange"> <label id=text>★</label></font>
 							</c:forEach>
         					<p class="card-text">주소<br>${dto.h_adress }</p>
-        					<p class="card-text">1인 ~ 최대 x인</p>
+        					<p class="card-text">1인 ~ 최대 12인</p>
         					<div class="text-right"> 
         						<span style="font-size:small;" id="day" value="${day }">${day }박당가격</span><br>
         						<c:set var="day" value="${day }" />
@@ -263,7 +263,7 @@
 						+"<div class='col-md-8'><div class='card-body'>"
 						+"<p class='card-title'><a href='HotelDetail.jsp'></a>"+data[i].h_name+"</p>"
 						+rate_append
-						+"<p class='card-text'>주소<br>"+data[i].h_adress+"</p><p class='card-text'>1인 ~ 최대 x인</p>"
+						+"<p class='card-text'>주소<br>"+data[i].h_adress+"</p><p class='card-text'>1인 ~ 최대 12인</p>"
 						+"<div class='text-right'> <span style='font-size:small;'>"+${day}+"박당가격</span><br>"
 						+price_append
 						+"<a href='detail.do?Gidx="+data[i].h_id+"'><input type='button' class='btn btn-success' value='예약하기'></a></div></div></div></div></div>"

@@ -18,6 +18,7 @@
 <body>
 	<!--  Header -->
 	<c:import url="/header.do"></c:import>
+
 	<div class="container">
 		<h1>${bdto.h_name}</h1>
 		<div>
@@ -29,14 +30,15 @@
 				</div>
 				<div class="col-4">
 					<div>
-						<label>주소:</label>
+						<h4>주소:</h4>
 						<p>${bdto.h_adress}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div>
-			<div>내용:${bdto.h_content}</div>
+			<div><h3>호텔 소개</h3>
+			<p>${bdto.h_content}</p></div>
 		</div>
 
 		<!--  체크인 체크아웃 검색 부분 -->
@@ -78,18 +80,25 @@
 			<tbody>
 				<c:forEach var="dto" items="${rdto}">
 					<tr align="left">
+						<input type="hidden" class="room" value="${dto.r_id }">
 						<td><h3>${dto.r_name}</h3> <br>서비스정보 :
 							<p>${dto.r_service}</p></td>
 						<td>${dto.r_inwon}</td>
-						<td>${dto.r_price}</td>
-						<td><a href="booking.do?h_id=${dto.r_id }"
-							class="btn btn-primary">예약하기</a></td>
+						<td>${dto.r_price * day}</td>
+						<td><input type="button" class="btn btn-primary checkBtn" value="예약하기"></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<c:import url="/rselect.do?Gidx=${bdto.h_id}"/>		
+		
+		<c:import url="/rselect.do?Gidx=${bdto.h_id}"/>
+
 	</div>
+
+
+
+
+
 
 
 
@@ -106,5 +115,23 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+		
+		
+		<script type="text/javascript">
+		
+			$(".checkBtn").click(function(){
+				var checkBtn = $(this);
+				var tr = checkBtn.parent().parent();
+				var td = tr.children();
+				var price = td.eq(3).text();
+				var r_id = tr.find('.room').attr('value');
+				var c_in = $('.date1').attr('value');
+				var c_out = $('.date2').attr('value');
+				
+				window.location.href = 'booking.do?h_id='+${bdto.h_id}+'&r_id='+r_id+'&price='+price
+										+"&checkIn_date="+c_in+"&checkOut_date="+c_out;
+				
+			});
+		</script>
 </body>
 </html>

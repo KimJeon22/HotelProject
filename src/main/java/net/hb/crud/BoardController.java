@@ -135,7 +135,7 @@ public class BoardController {
 		mav.addObject("checkIn", checkIn);
 		mav.addObject("checkOut", checkOut);
 		mav.addObject("day", day);
-		mav.setViewName("WEB-INF/views/detail2.jsp");
+		mav.setViewName("WEB-INF/views/detail.jsp");
 		return mav;
 	}
 	
