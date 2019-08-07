@@ -16,4 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        (select h.* from hotel h) h on h.h_name = r.name
      </select>
         
+     <select id="mapslist" resultType="net.hb.main.MainDTO">
+       select * from maps where t_area=#{t_area}
+     
+     </select>
 </mapper>

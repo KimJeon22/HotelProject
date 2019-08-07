@@ -21,5 +21,8 @@ public class MainDTO {
   
  //travel
   String  t_area, t_image, t_place, t_content, t_mlat;
+  
+ //maps 
+  String m_lat, m_long;
  
 }
