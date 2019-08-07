@@ -30,16 +30,16 @@ a:hover { color: white; text-decoration: underline;}
 	
 	<!-- nav 화면 -->
 	<nav class="navbar navbar-expand-lg bg-color">
-		<a class="navbar-brand" href="Mainpage.jsp">호텔프로젝트</a>
+		<a class="navbar-brand" href="mainpage.do">호텔프로젝트</a>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<c:if test='${sessionScope.m_id eq null}'>
-					<a class="nav-item nav-link active" href="Mainpage.jsp">Home </a>
+					<a class="nav-item nav-link active" href="mainpage.do">Home </a>
 					<a class="nav-item nav-link login" data-toggle="modal" data-target=".bd-example-modal-sm"  href="#">로그인</a> 
 					<a class="nav-item nav-link" data-toggle="modal" data-target=".bd-example-modal-lg" href="#">회원가입</a>
 				</c:if>
 				<c:if test='${sessionScope.m_id ne null}'>
-					<a class="nav-item nav-link active" href="Mainpage.jsp">Home </a>
+					<a class="nav-item nav-link active" href="mainpage.do">Home </a>
 					<a class="nav-item nav-link login" data-toggle="modal" data-target="#exampleModalCenter" href="#">호텔추가</a>
  					<li class="nav-item dropdown form-inline my-2 my-lg-0">
        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${sessionScope.m_id }님 </a>
