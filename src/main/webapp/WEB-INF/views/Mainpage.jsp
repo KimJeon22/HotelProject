@@ -228,75 +228,75 @@ h3{
 
     <div class="col-lg-3 col-md-4 col-6">
      
-      <a href="tourSearch.do?timg=a.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=a.jpg&area=서울" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/a.jpg" style="height:200px;">
             <div class="jb-text"> <p>Seoul</p> </div>
           </a>
        
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=b.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=b.jpg&area=부여" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/b.jpg" style="height:200px;">
              <div class="jb-text"> <p>Buyeo</p> </div>
           </a>
     </div>
     
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=c.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=c.jpg&area=제주" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/c.jpg" style="height:200px;">
              <div class="jb-text"> <p>Jeju</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=d.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=d.jpg&area=안성" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/d.jpg" style="height:200px;">
             <div class="jb-text"> <p>Ansung</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=e.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=e.jpg&area=안동" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/e.jpg" style="height:200px;">
             <div class="jb-text"> <p>Andong</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=g.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=f.jpg&area=경주" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/f.jpg" style="height:200px;">
             <div class="jb-text"> <p>Gyeongju</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=g.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=g.jpg&area=통영" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/g.jpg" style="height:200px;">
             <div class="jb-text"> <p>Tongyeong</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=h.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=h.jpg&area=대전" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/h.jpg" style="height:200px;">
             <div class="jb-text"> <p>Daejeon</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=i.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=i.jpg&area=보성" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/i.jpg" style="height:200px;">
             <div class="jb-text"> <p>Boseong</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=j.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=j.jpg&area=남해" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/j.jpg" style="height:200px;">
             <div class="jb-text"> <p>Namhae</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=k.png" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=k.png&area=부산" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/k.png" style="height:200px;">
             <div class="jb-text"> <p>Busan</p> </div>
           </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="tourSearch.do?timg=c.jpg" class="d-block mb-4 h-100">
+      <a href="tourSearch.do?timg=c.jpg&area=고창" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="resources/tour_image/l.jpg" style="height:200px;">
             <div class="jb-text"> <p>Gochang</p> </div>
           </a>

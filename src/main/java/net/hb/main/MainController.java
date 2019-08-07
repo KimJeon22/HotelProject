@@ -45,13 +45,14 @@ public class MainController {
 	
 		
 	  @RequestMapping("/tourSearch.do") 
-	  public ModelAndView toursearch(MainDTO dto, @RequestParam("timg") String timg ) {
+	  public ModelAndView toursearch(MainDTO dto, @RequestParam("timg") String timg, @RequestParam("area") String area ) {
+		  //System.out.println("넘어온 이미지=" + timg + "넘어온지역명=" + area);
 		  //관광지 스플릿변수설정
 			  String A = null;
 			  String B = null;
 			  String C = null;
 			  String D = null;
-			  
+		  //메인위도경도변수명
 			  String w = null;
 			  String k = null;
 		  //System.out.println("메인화면에서 넘어온 이미지이름=" + timg);
@@ -77,9 +78,13 @@ public class MainController {
 				  w = atrA[0];
 				  k = atrA[1];
 			  } 
-			  
+			  				  
+		  //지도관련정보
+		  List<MainDTO> mt = dao.dbMselect(area);
+		  
 		  //호텔정보&룸가격 
 		  List<MainDTO> dt = dao.dbHselect();
+		  
 		/*
 		 * for(int i=0; i<dtoss.size(); i++) { MainDTO dt = new MainDTO();
 		 * //System.out.println("컨트롤러에서 나온호텔이름=" + dtoss.get(i).getH_name()); String
@@ -93,6 +98,7 @@ public class MainController {
 		  mav.addObject("D", D); //관광지정보
 		  mav.addObject("w", w); //위도정보
 		  mav.addObject("k", k); //경도정보
+		  mav.addObject("mt", mt); //maps db정보
 				  
 		  //System.out.println("컨트롤러 완료");
 		  mav.setViewName("WEB-INF/views/MainDetail.jsp"); 	  

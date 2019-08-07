@@ -102,54 +102,37 @@
 		
 		   <div class="col-md-6">
 				<h2>지도</h2><br>
-		     <div id="map" style="width:520px;height:300px;"></div>
-				<script>
-					var container = document.getElementById('map');
-					var options = {
-						center: new kakao.maps.LatLng(${w}, ${k}),
-						level: 3
-					};			
-					var map = new kakao.maps.Map(container, options); //지도를 생성합니다.
+				<div id="map" style="width:100%;height:350px;"></div>
+
+			  
+					<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					    mapOption = { 
+					        center: new kakao.maps.LatLng('${w}', '${k}'), // 지도의 중심좌표
+					        level: 6 // 지도의 확대 레벨
+					    };
 					
-					var positions = [
-					    {
-					        title: '카카오', 
-					        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-					    },
-					    {
-					        title: '생태연못', 
-					        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-					    },
-					    {
-					        title: '텃밭', 
-					        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-					    },
-					    {
-					        title: '근린공원',
-					        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-					    }
-					];
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+					</script>
+					<c:forEach var="dto" items="${mt}">
+					<script>
+					// 마커가 표시될 위치입니다 	
+					 var title = '${dto.h_name}';
+					 var markerPosition  = new kakao.maps.LatLng('${dto.m_lat}', '${dto.m_long}'); 
 					
-					// 마커 이미지의 이미지 주소입니다
-					var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-					    
-					for (var i = 0; i < positions.length; i ++) {
-					    
-					    // 마커 이미지의 이미지 크기 입니다
-					    var imageSize = new kakao.maps.Size(24, 35); 
-					    
-					    // 마커 이미지를 생성합니다    
-					    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-					    
-					    // 마커를 생성합니다
-					    var marker = new kakao.maps.Marker({
-					        map: map, // 마커를 표시할 지도
-					        position: positions[i].latlng, // 마커를 표시할 위치
-					        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-					        image : markerImage // 마커 이미지 
-					    });
-					}
-	            </script>										
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+						title: title,
+					    position: markerPosition
+					});
+					
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);
+					
+					// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+					// marker.setMap(null);	
+				</script>
+			</c:forEach>
 			</div>	
 			<div class="col-md-6">				 
 				<h2>관광명소</h2><br>				
@@ -183,7 +166,7 @@
 				                    </div>
 				                    <div class="col-md-8 card-body ">				        
 				                        <a href="#"><span><h3>${dt.h_name}</h3></span></a><p></p>				                        
-				                         <sapn><h4>주소:${dt.h_adress}</h4></sapn>
+				                         <sapn><h4>주소: ${dt.h_adress}</h4></sapn>
 				                        <ul class="list-inline">
 				                             <li class="list-inline-item"><h4>1인 - 최대 x인</h4></li><br><br>				                     
 				                             <li class="list-inline-item"><h5>1박당 가격</h5></li><br><br>
