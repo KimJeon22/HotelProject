@@ -30,28 +30,28 @@ INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베니키아스위스
 
 INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('충부비치호텔','통영',19,3,'hotel19.jpg');
 INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('하와이호텔','통영',20,4,'hotel20.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('브라운도트호텔','통영',21,1,'hotel21.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('브라운도트호텔','통영',21,1,'hotel21.jpeg');
 
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('레지던스호텔라미아','대전',22,3,'hotel22.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('이안레지던스호텔','대전',23,2,'hotel23.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('블루샵레지던스호텔','대전',24,5,'hotel24.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('레지던스호텔라미아','대전',22,3,'hotel22.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('이안레지던스호텔','대전',23,2,'hotel23.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('블루샵레지던스호텔','대전',24,5,'hotel24.jpeg');
 
 
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('크라운호텔','보성',25,3,'hotel25.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('호텔안','보성',26,5,'hotel26.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진송관광호텔','보성',27,2,'hotel27.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('크라운호텔','보성',25,3,'hotel25.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('호텔안','보성',26,5,'hotel26.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진송관광호텔','보성',27,2,'hotel27.jpeg');
 
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('HS관광호텔','남해',28,1,'hotel28.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('유탑마리나호텔','남해',29,4,'hotel29.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('여수베네치아호텔','남해',30,2,'hotel30.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('HS관광호텔','남해',28,1,'hotel28.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('유탑마리나호텔','남해',29,4,'hotel29.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('여수베네치아호텔','남해',30,2,'hotel30.jpeg');
 
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('파라다이스호텔','부산',31,5,'hotel31.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진산호텔앤리조트해운대','부산',32,3,'hotel32.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베니키아프리미어마리안느호텔','부산',33,2,'hotel33.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('파라다이스호텔','부산',31,5,'hotel31.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('진산호텔앤리조트해운대','부산',32,3,'hotel32.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('베니키아프리미어마리안느호텔','부산',33,2,'hotel33.jpeg');
 
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산관광호텔','고창',34,2,'hotel34.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('동백호텔','고창',35,5,'hotel35.jpg');
-INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산유스호스텔','고창',36,3,'hotel36.jpg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산관광호텔','고창',34,2,'hotel34.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('동백호텔','고창',35,5,'hotel35.jpeg');
+INSERT INTO hotel (h_name,h_adress,h_id,h_rate, h_image) VALUES ('선운산유스호스텔','고창',36,3,'hotel36.jpeg');
 
 
 

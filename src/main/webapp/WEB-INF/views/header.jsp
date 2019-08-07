@@ -13,14 +13,14 @@
 	z-index: 3;
 }
 .bg-color{
- background: rgb(76, 80, 87);
+ background: white;
  color:white;
 }
 
 .cd-accordion__item{
 }
 a:link { color: white; text-decoration: none;}
-a:visited { color: black; text-decoration: none;}
+a:visited { color: white; text-decoration: none;}
 a:hover { color: white; text-decoration: underline;}
 
 </style>
