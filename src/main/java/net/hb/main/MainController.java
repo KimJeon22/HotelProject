@@ -83,7 +83,7 @@ public class MainController {
 		  List<MainDTO> mt = dao.dbMselect(area);
 		  
 		  //호텔정보&룸가격 
-		  List<MainDTO> dt = dao.dbHselect();
+		  List<MainDTO> dt = dao.dbHselect(area);
 		  
 		/*
 		 * for(int i=0; i<dtoss.size(); i++) { MainDTO dt = new MainDTO();
