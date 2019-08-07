@@ -26,6 +26,12 @@ public class ReplyDAO {
 		temp.insert("reply.replyAdd", dto);
 	}
 	
+	public void dbAvgUpdate(ReplyDTO dto) {
+		temp.update("board.rateUpdate", dto);
+		System.out.println("h_id: "+dto.getH_id());
+		System.out.println("avg: "+dto.getAvg());
+	}
+	
 	public void dbDelete(int re_id) {
 		temp.delete("reply.replyDelete",re_id);
 	}

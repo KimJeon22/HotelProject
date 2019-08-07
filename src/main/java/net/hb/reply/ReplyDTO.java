@@ -7,9 +7,15 @@ import java.util.Date;
 public class ReplyDTO {
 	String m_id, re_content,date,url;
 	Date re_date;
-	int h_id, m_num, re_id,re_rate;
+	int h_id, m_num, re_id,re_rate,avg;
 	
 	
+	public int getAvg() {
+		return avg;
+	}
+	public void setAvg(int avg) {
+		this.avg = avg;
+	}
 	public String getUrl() {
 		return url;
 	}
