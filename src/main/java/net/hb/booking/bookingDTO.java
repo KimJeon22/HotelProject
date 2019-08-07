@@ -1,5 +1,6 @@
 package net.hb.booking;
 
+
 import java.util.Date;
 
 import lombok.Data;
@@ -7,7 +8,8 @@ import lombok.Data;
 @Data
 public class bookingDTO {
 
-	String is_check;
+	String cin,cout,is_check;
 	int r_id;
-	Date heck_in, check_out;
+	Date check_in, check_out;
+	
 }

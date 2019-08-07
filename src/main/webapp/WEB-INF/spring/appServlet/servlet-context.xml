@@ -28,9 +28,13 @@
 		name="suffix" value=".jsp" /> </beans:bean> -->
 
 	<context:component-scan base-package="net.hb.*" />
-	
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    </beans:bean>
 
-
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<beans:bean class="net.hb.interceptor.LoginInterceptor" id="loginInterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/rinsert.do" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+	</interceptors>
 </beans:beans>

@@ -168,8 +168,8 @@ label,#col-8{
 					
 				</div>
 				<form method="post" action="bookingInsert.do">
-					<input type="hidden" name="check_in" value="${checkIn }">
-					<input type="hidden" name="check_out" value="${checkOut}">
+					<input type="hidden" name="cin" value="${checkIn }">
+					<input type="hidden" name="cout" value="${checkOut}">
 					<input type="hidden" name="is_check" value='n'>
 					<input type="hidden" name="r_id" value="${room[0].r_id }">
 					<input type="hidden" name="m_id" value="${member[0].m_id }">

@@ -140,43 +140,4 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping("/booking.do")
-	public ModelAndView board_booking(
-			@RequestParam("checkIn_date") String checkIn, @RequestParam("checkOut_date") String checkOut,
-			@RequestParam("h_id") int h_id, @RequestParam("r_id") int r_id,
-			@RequestParam("price") int price, BoardDTO dto, HttpSession session,HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		int user_id;
-		List<RoomDTO> rlist = dao.dbRoomSelect2(r_id);
-		List<BoardDTO> hlist = dao.hotelSelect(h_id);
-		
-		String m_id = (String) session.getAttribute("m_id");
-		
-		if(m_id == null) { 
-			m_id = "1";
-			user_id = Integer.parseInt(m_id);
-			PrintWriter out = null;
-			try {
-				response.setCharacterEncoding("UTF-8");
-				out = response.getWriter();
-				out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
-				out.flush();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		else {
-			List<MemberDTO> mlist = mdao.memberSelect(m_id);
-			mav.addObject("member",mlist);
-		}
-		
-		mav.addObject("checkIn", checkIn);
-		mav.addObject("checkOut", checkOut);
-		mav.addObject("price",price);
-		mav.addObject("room", rlist);
-		mav.addObject("hotel",hlist);
-		mav.setViewName("WEB-INF/views/booking.jsp");
-		return mav;
-	}
 }

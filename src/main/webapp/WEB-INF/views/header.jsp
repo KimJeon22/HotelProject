@@ -30,7 +30,7 @@ a:hover { color: white; text-decoration: underline;}
 	
 	<!-- nav 화면 -->
 	<nav class="navbar navbar-expand-lg bg-color">
-		<a class="navbar-brand" href="Mainpage.jsp">호텔프로젝트</a>
+		<a class="navbar-brand" href="mainpage.do">호텔프로젝트</a>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<c:if test='${sessionScope.m_id eq null}'>
