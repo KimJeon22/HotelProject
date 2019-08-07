@@ -15,6 +15,9 @@
 <!-- 상세검색 css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
+<!-- map list -->
+
+
 <style type="text/css">
 	.card-title{ font-size: large; }
 	.card-text{ font-size: small; }
@@ -70,71 +73,39 @@
 		<div class="row">
 
 			<!-- 왼쪽 화면 -->
-			<div class="col-4">
-				<ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg">
-					<li class="cd-accordion__item cd-accordion__item--has-children">
-						<input class="cd-accordion__input" type="checkbox" name="group-1" id="group-1"> 
-						<label class="cd-accordion__label" for="group-1"><span>호텔 이름</span></label>
-
-						<ul class="cd-accordion__sub cd-accordion__sub--l1">
-							<li class="cd-accordion__item cd-accordion__item--has-children">
-								<div class="text-right">
-									<input type="text" style="margin-right:15px;">
-									<input type="button" style="margin-right:15px;" class="btn btn-primary" value="검색">
-								 </div>
-							</li>
-						</ul>
-					</li>
-
-					<li class="cd-accordion__item cd-accordion__item--has-children">
-						<input class="cd-accordion__input" type="checkbox" name="group-2" id="group-2"> 
-						<label class="cd-accordion__label" for="group-2"><span>평점</span></label>
-						<ul class="cd-accordion__sub cd-accordion__sub--l1">
-							<li class="cd-accordion__label"> <input type="checkbox" name="rate" id="chk_rate" value="1"><font color="orange">★</font></li>
-							<li class="cd-accordion__label"> <input type="checkbox" name="rate" id="chk_rate" value="2"><font color="orange">★★</font></li>
-							<li class="cd-accordion__label"> <input type="checkbox" name="rate" id="chk_rate" value="3"><font color="orange">★★★</font></li>
-							<li class="cd-accordion__label"> <input type="checkbox" name="rate" id="chk_rate" value="4"><font color="orange">★★★★</font></li>
-							<li class="cd-accordion__label"> <input type="checkbox" name="rate" id="chk_rate" value="5"><font color="orange">★★★★★</font></li>
-						</ul>
-					</li>
-
-
-					<li class="cd-accordion__item cd-accordion__item--has-children">
-						<input class="cd-accordion__input" type="checkbox" name="group-3" id="group-3"> 
-						<label class="cd-accordion__label" for="group-3"><span>1박당 가격</span></label>
-							<ul class="cd-accordion__sub cd-accordion__sub--l1">
-								<li class="cd-accordion__label"> <input type="checkbox" name="price" value="50000"> 0원 ~ 50,000원</li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="price" value="100000"> 50,000원 ~ 100,000원</li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="price" value="150000"> 100,000원 ~ 150,000원</li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="price" value="200000"> 150,000원 ~ 200,000원</li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="price" value="250000"> 200,000원 ~ 250,000원</li>
-						</ul>
-					</li>
+			<div class="col-4" >
+			
+				<ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg"> </ul>
+			<div id="map" style="width:100%;height:350px;"></div>
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2233c89c1a9b498cab20c04239e70ef7"></script>	
+				<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					    mapOption = { 
+					        center: new kakao.maps.LatLng(35.907757, 127.76692200000002), // 지도의 중심좌표
+					        level: 13 // 지도의 확대 레벨
+					    };
 					
-					<li class="cd-accordion__item cd-accordion__item--has-children">
-						<input class="cd-accordion__input" type="checkbox" name="group-4" id="group-4"> 
-						<label class="cd-accordion__label" for="group-4"><span>장소</span></label>
-							<ul class="cd-accordion__sub cd-accordion__sub--l1">
-								<li class="cd-accordion__label"> <a href="#" > 강남</a></li>
-								<li class="cd-accordion__label"> <a href="#" > 강남</a></li>
-								<li class="cd-accordion__label"> <a href="#" > 강남</a></li>
-								<li class="cd-accordion__label"> <a href="#" > 강남</a></li>
-						</ul>
-					</li>
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+					</script>
+					<c:forEach var="dtto" items="${mplist}">
+					<script>
+					// 마커가 표시될 위치입니다 
+					var title = '${dtto.h_name}';
+					var markerPosition  = new kakao.maps.LatLng('${dtto.m_lat}', '${dtto.m_long}'); 
+				
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+						title:title,
+					    position: markerPosition
+					});
 					
-					<li class="cd-accordion__item cd-accordion__item--has-children">
-						<input class="cd-accordion__input" type="checkbox" name="group-5" id="group-5"> 
-						<label class="cd-accordion__label" for="group-5"><span>주변 시설</span></label>
-							<ul class="cd-accordion__sub cd-accordion__sub--l1">
-								<li class="cd-accordion__label"> <input type="checkbox" name="facility" value="wifi">무료 와이파이 </li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="facility" value="breakfast">조식 </li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="facility" value="swimming_pool">수영장 </li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="facility" value="spa">스파</li>
-								<li class="cd-accordion__label"> <input type="checkbox" name="facility" value="bbq">바베큐</li>
-						</ul>
-					</li>
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);
 					
-				</ul>
+					// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+					// marker.setMap(null);    
+					</script>
+					</c:forEach>		
 			</div>
 
 			<!--  오른쪽 화면  -->

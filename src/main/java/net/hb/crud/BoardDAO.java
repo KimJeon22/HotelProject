@@ -92,5 +92,14 @@ public class BoardDAO {
 		}
 
 	}
-
+	
+	  public List<BoardDTO> dbmaplist(){
+		  
+		List<BoardDTO> mplist = temp.selectList("board.maplist");
+		 System.out.println("board dao´Ü map ¼º°ø");
+		  
+		return mplist; 
+	 }
+	
+	
 }

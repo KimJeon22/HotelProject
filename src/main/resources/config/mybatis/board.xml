@@ -59,12 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update hotel set h_rate= #{avg} where h_id= #{h_id}
 	</update>
 	
-	
-	
-	
-	
-	
-	
+	<!-- map -->
+	<select id="maplist" resultType="net.hb.crud.BoardDTO">
+	    select * from maps	
+	</select>
+				
 	<!-- 참고코드 -->
 	<insert id="add">
 		insert into hobby(hobby_idx,name,title,content,gender,hobby,img_file_name)
@@ -85,6 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		content=#{content}, gender=#{gender}, hobby=#{hobby},
 		img_file_name=#{img_file_name} where hobby_idx=#{hobby_idx}
 	</update>
+	
 
 	
 </mapper>

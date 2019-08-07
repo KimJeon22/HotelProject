@@ -53,12 +53,12 @@ public class BoardController {
 	@RequestMapping("/list.do")
 	public ModelAndView board_list(BoardDTO dto) {
 		ModelAndView mav = new ModelAndView();
+					
 		int total = dao.dbCount();
 		int start = 0, end = 5;
 		if( total < 5) end = total;
 		List<BoardDTO> hotelList = dao.dbSelect(start, end, dto.getH_adress());
-		 
-		
+				 		
 		//몇 박인지 계산하기
 		if(dto.getCheckIn_date() == null) {mav.addObject("day", 1);}
 		else {
@@ -76,6 +76,9 @@ public class BoardController {
 		        e.printStackTrace();
 		    	}
 			}
+		
+		List<BoardDTO> mplist = dao.dbmaplist();
+						  
 		mav.addObject("start", start);
 		mav.addObject("end",end);
 		mav.addObject("total",total);
@@ -83,6 +86,7 @@ public class BoardController {
 		mav.addObject("adress", dto.getH_adress());
 		mav.addObject("checkIn", dto.getCheckIn_date());
 		mav.addObject("checkOut",dto.getCheckOut_date());
+		mav.addObject("mplist", mplist);
 		mav.setViewName("WEB-INF/views/list.jsp");
 		return mav;
 	}
