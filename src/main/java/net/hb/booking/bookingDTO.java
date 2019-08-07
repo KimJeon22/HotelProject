@@ -9,7 +9,7 @@ import lombok.Data;
 public class bookingDTO {
 
 	String cin,cout,is_check;
-	int r_id;
-	Date check_in, check_out;
+	int r_id, dateCheck;
+	Date check_in, check_out, date;
 	
 }

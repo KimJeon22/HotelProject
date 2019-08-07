@@ -1,17 +1,12 @@
 package net.hb.booking;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -53,7 +48,6 @@ public class BookingController {
 			@RequestParam("h_id") int h_id, @RequestParam("r_id") int r_id,
 			@RequestParam("price") int price, BoardDTO dto, bookingDTO kdto, HttpSession session,HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		int user_id;
 		List<RoomDTO> rlist = bdao.dbRoomSelect2(r_id);
 		List<BoardDTO> hlist = bdao.hotelSelect(h_id);
 		Date startDate,endDate;
@@ -80,14 +74,15 @@ public class BookingController {
         }
         
         for (String date : dates) {
-            Map<String, Object> map = new HashMap<String, Object>(); // MAP을 이용해 담기
-            map.put("date", date);
-            map.put("r_id", r_id);
+        	bookingDTO day = new bookingDTO();
+        	day.setDate(java.sql.Date.valueOf(date));
+        	day.setDateCheck(r_id);
             
-            int check = dao.checkDate(map);
+            int check = dao.checkDate(day);
             if(check != 0) {
             	try {
-            		response.getWriter().append("<script>alert('빈 방이 없습니다'); history.go(-1);</script>");
+            		response.setContentType("text/html; charset=utf-8");
+            		response.getWriter().append("<script>alert('빈 방이 없습니다'); history.go(-1);</script>").flush();;
 					break;
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

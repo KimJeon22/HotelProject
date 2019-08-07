@@ -13,8 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into booker values (#{m_id}, #{h_id}, #{r_id}, #{b_inwon})
 </insert>
 
-<select id="select"  parameterType="map" resultType="int">
-	select count(*) as cnt from booking where check_in = #{date} or check_out = #{date} and r_id=#{r_id}
+<select id="select" resultType="int">
+	select count(*) as cnt
+	from booking
+	where (select r_id from booking where r_id = #{dateCheck}) = (select r_id from booking where check_in = #{date} or check_out = #{date})
 </select>
 
 	

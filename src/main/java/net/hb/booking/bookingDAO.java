@@ -1,6 +1,5 @@
 package net.hb.booking;
 
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,8 @@ public class bookingDAO {
 		temp.insert("booking.eradd",dto);
 	}
 	
-	public int checkDate(Map<String, Object> map) {
-		int cnt = temp.selectOne("booking.select", map);
-		System.out.println(cnt);
+	public int checkDate(bookingDTO dto) {
+		int cnt = temp.selectOne("booking.select", dto);
 		return cnt;
 	}
 	
