@@ -14,23 +14,9 @@
 	crossorigin="anonymous">
 	
 <script type="text/javascript">
-
-
 	function re_save(){
-		var id = "<%=session.getAttribute("m_id")%>";
-		if(id==null){
-			alert("로그인 후 이용해주세요");
-		} else if(id!=null) {
-			if(!$(':input:radio[name=re_rate]:checked').val()) {   
-			   alert("별점 체크!");
-			   return;
-			}
-			else
 				document.myform.submit();
 		}
-		
-		
-	}
 </script>
 
 </head>

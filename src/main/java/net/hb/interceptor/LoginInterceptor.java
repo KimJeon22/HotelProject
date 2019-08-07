@@ -18,7 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 	       //세션을 찾아온다
 			HttpSession session = request.getSession();
-			String boxer = (String)session.getAttribute("daum");
+			String boxer = (String)session.getAttribute("m_id");
 	
 			System.out.println("LoginInterceptor인셉 세션boxer=" + boxer);
 			//로그인이 안된 상태에서 요청을 햇을 때 로그인 한 후 요청한 페이지로 이동하도록 하기 위해서 요청한 주소를 세션에 저장한 후 로그인이 성공했을 때 그 주소로 이동하도록 하면 된다.
@@ -26,8 +26,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			System.out.println("LoginInterceptor인셉  uri " + uri);
 	        
 	      //프로젝트 이름까지 찾아오기때문에 주소만  http://127.0.0.1:8081/crud/~~.do
-	      int idx = uri.lastIndexOf("/");
-			  uri = uri.substring(idx+1);
+			int idx = uri.lastIndexOf("/");
+			uri = uri.substring(idx+1);
 			
 			System.out.println("LoginInterceptor인셉  uri "+uri);
 	        //파라미터 찾아오기  리스트문서 제목클릭하면 idx공유와 같은역할 
@@ -48,8 +48,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}else {
 				response.setContentType("text/html; charset=utf-8");
 				response.getWriter().append("<script>"
-								+ "alert('LoginInterceptor인셉 로그인이필요합니다.');"
-					        		 + "location.href='login.do';"
+								+ "alert('로그인이필요합니다.');"
+					        		 + "history.go(-1);"
 								  + "</script>").flush();
 				adminCheck=false;
 			}
