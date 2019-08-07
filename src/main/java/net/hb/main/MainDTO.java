@@ -20,6 +20,6 @@ public class MainDTO {
   String is_check;
   
  //travel
-  String  t_area, t_image, t_place, t_content;
+  String  t_area, t_image, t_place, t_content, t_mlat;
  
 }
