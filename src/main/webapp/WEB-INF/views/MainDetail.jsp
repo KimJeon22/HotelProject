@@ -31,23 +31,23 @@
 </script>
 
 <style>
- h2{
+ .dark-grey{
    font-size:30px;
    line-height:1.4em;
    background-color:#BCBABD;
    box-shadow: 0.1em 0 0 #BCBABD, -0.1em 0 0 #BCBABD 
  }
    
- td{
+ .td{
   font-size:30px;   
  }
  
- table{
+ .table{
   width:100%;
   height:150px;
  }
  
- img {width:100%;}
+ .img {width:100%;}
 .car-image-block {padding:0px;margin:0px;}
 .car-image-block img {min-height: 200px; overflow: hidden;}
 .crane-image-block {padding:0px;margin:0px;}
@@ -61,13 +61,22 @@
   width: 300px;
  }
  
- span{
+ .span{
   font-size:10px;
  }
  
- button{
+.btn btn-outline-danger{
    width: 50%; 
  }
+ 
+ /* Style the footer */
+.footer {
+  background-color: #006BAB;
+  padding: 30px;
+  text-align: center;
+  font-size:14px;
+  color:white;
+}
  
 </style>
 
@@ -89,7 +98,7 @@
 		
 			<div class="col-md-6">
 			 <h3 class="dark-grey"><b>검색한 지역 [ ${LG.t_area} ]</b></h3><p>
-				<img src="resources/tour_image/${LG.t_image}" width="600" height="470">	
+				<img class="img" src="resources/tour_image/${LG.t_image}" width="600" height="470">	
 			</div>
 		</div>
 	</section>
@@ -101,7 +110,7 @@
 		<div class="container-page">
 		
 		   <div class="col-md-6">
-				<h2>지도</h2><br>
+				<h2 class="dark-grey">지도</h2><br>
 				<div id="map" style="width:100%;height:350px;"></div>
 
 			  
@@ -135,19 +144,19 @@
 			</c:forEach>
 			</div>	
 			<div class="col-md-6">				 
-				<h2>관광명소</h2><br>				
-			    <table>
+				<h2 class="dark-grey">관광명소</h2><br>				
+			    <table class="table">
 			    <tr>			    	   
-			      <td>${A}</td>
-			      <td>${B}</td>				
+			      <td class="td">${A}</td>
+			      <td class="td">${B}</td>				
 			    </tr> 
 			    <tr>
-			      <td>${C}</td>
-			      <td>${D}</td>
+			      <td class="td">${C}</td>
+			      <td class="td">${D}</td>
 			    </tr>		 
 			    </table>
 			    <hr>
-			    <tr ><td><font size="4"><b>${LG.t_content}</b></font></td></tr>
+			    <tr><td class="td"><font size="4"><b>${LG.t_content}</b></font></td></tr>
 			    <hr>				 		
 			</div>
 							
@@ -162,10 +171,10 @@
 				              <c:forEach var="dt" items="${HG}" begin="0" end="8"> 
 				                <div class="row border">				                 
 				                    <div class="col-md-4 car-image-block">
-				                        <a href="#"><img src="${pageContext.request.contextPath}/resources/hotel_image/${dt.h_image}"></a>
+				                        <a href="#"><img class="img" src="${pageContext.request.contextPath}/resources/hotel_image/${dt.h_image}"></a>
 				                    </div>
 				                    <div class="col-md-8 card-body ">				        
-				                        <span><h3>${dt.h_name}</h3></span><p></p>				                        
+				                        <span class="span"><h3>${dt.h_name}</h3></span><p></p>				                        
 				                         <sapn><h4>주소: ${dt.h_adress}</h4></sapn>
 				                        <ul class="list-inline">
 				                             <li class="list-inline-item"><h4>1인 - 최대 x인</h4></li><br><br>				                     
@@ -183,9 +192,13 @@
 			</div>			
 		</div>
 	</section>
-
+</div>
+<br><br><hr>
+<!-- footer -->
+<div class="footer">
+  	<p>© <span>2018</span> <a href="#" class="transition">KnightRider7660</a> All rights reserved.</p>
 </div>
 
-<div align="center"><h2>Footer</h2> </div>
+
 </body>
 </html>

@@ -25,19 +25,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Style the header */
-.header {
-  background-color: #f1f1f1;
-  padding: 0px;
-  text-align: center;
-  font-size: 35px;
-}
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
-  padding: 10px;
+  background-color: #006BAB;
+  padding: 30px;
   text-align: center;
+  color:white;
 }
 
 /* 검색 옵션 화면 */
@@ -120,6 +114,7 @@ h3{
 				font-weight: bold;
                 color: white;
 			}
+			
 
 </style>
 </head>
@@ -302,11 +297,12 @@ h3{
           </a>
     </div>
   </div>
-
+<br><br>
+<hr>
 </div>
 <!-- footer -->
 <div class="footer">
-  <p>Footer</p>
+  	<p>© <span>2018</span> <a href="#" class="transition">KnightRider7660</a> All rights reserved.</p>
 </div>
 
 </body>
