@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -141,6 +142,28 @@ public class BoardController {
 		mav.addObject("day", day);
 		mav.setViewName("WEB-INF/views/detail.jsp");
 		return mav;
+	}
+	
+	@RequestMapping("/aa.do")
+	public String aa(@RequestParam("Gidx") int data, @RequestParam("checkIn_date") String checkIn, @RequestParam("checkOut_date") String checkOut) {
+		int day = 0;
+		if(checkIn == null) {day=1;}
+		else {
+			try {
+		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		        Date beginDate = formatter.parse(checkIn);
+		        Date endDate = formatter.parse(checkOut);
+		         
+		        // 시간차이를 시간,분,초를 곱한 값으로 나누면 하루 단위가 나옴
+		        long diff = endDate.getTime() - beginDate.getTime();
+		        long diffDays = diff / (24 * 60 * 60 * 1000);
+		        day = (int) diffDays;
+		    	} catch (ParseException e) {
+		        e.printStackTrace();
+		    	}
+			}
+		
+		return "redirect:detail.do?Gidx="+data+"&checkIn_date="+checkIn+"&checkOut_date="+checkOut+"&day="+day;
 	}
 	
 }

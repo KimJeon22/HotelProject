@@ -27,6 +27,12 @@
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
 	
+	function aa(Gidx){
+		var a=$('.date1').val();
+		var b=$('.date2').val();
+		location.href="aa.do?Gidx="+Gidx+"&checkIn_date="+a+"&checkOut_date="+b; 
+	}
+	
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 </script>
 
@@ -103,8 +109,13 @@
 		</div>
 	</section>
 </div>
+
+
+
 <hr style="align:center; width:57%">
 <!-- 2번째 섹션  -->
+
+
 <div class="container-fluid">
     <section class="container">
 		<div class="container-page">
@@ -181,7 +192,7 @@
 				                             <li class="list-inline-item"><h5>1박당 가격</h5></li><br><br>
 				                             <li class="list-inline-item"><h3>최저가:${dt.r_price} </h3></li>
 				                        </ul>
-				                        <a href="detail.do?Gidx=${dt.h_id}"><button type="button" class="btn btn-outline-danger"><b>상품보기</b></button></a>
+				                        <button type="button" class="btn btn-outline-danger" onclick="aa(${dt.h_id})"><b>상품보기</b></button>
 				                     </div>   
 				                    </div>            
 				                 </c:forEach>				                        				                          
