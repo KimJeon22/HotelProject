@@ -47,7 +47,7 @@ CREATE TABLE room (
 	h_name VARCHAR2(100) NOT NULL,
 	r_name VARCHAR2(100) NOT NULL, 		
 	r_price NUMBER(10) NOT NULL, 
-	r_service VARCHAR2(100) NOT NULL, 
+	r_service VARCHAR2(100) NOT NULL
 );
 
 CREATE UNIQUE INDEX PK_room
