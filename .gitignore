@@ -61,7 +61,6 @@ ehthumbs_vista.db
 
 #dohyung
 /target/
-*.properties
 *,springBeans
 *.MF
 
